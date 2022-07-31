@@ -368,7 +368,7 @@ body {
   color: rgba(0, 0, 0, 0.87);
   font-size: 14px;
   font-family: Roboto, Noto, Helvetica, Arial, sans-serif;
-  background-color: #fff;
+  background-color: #B2EBF2;
 }
 @media (min-width: 600px) {
   body {
@@ -1641,9 +1641,7 @@ body.mdui-locked {
 }
 
  /* * .mdui-color-[color] */
- .mdui-color-cyan-100 {
-    background-color: #B2EBF2 !important;
- }
+ 
 
 .mdui-color-amber {
   background-color: #FFC107 !important;
