@@ -1639,10 +1639,10 @@ body.mdui-locked {
   background-color: #FFD600 !important;
   color: rgba(0, 0, 0, 0.87) !important;
 }
-/**
- * .mdui-color-[color]
- * .mdui-color-[color]-[degree]
- */
+
+ /* * .mdui-color-[color] */
+ .mdui-color-cyan-100
+
 .mdui-color-amber {
   background-color: #FFC107 !important;
   color: rgba(0, 0, 0, 0.87) !important;
