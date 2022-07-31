@@ -8,7 +8,7 @@
       <link href="/2022/07/31/%E6%98%BE%E5%BE%AE%E5%B0%8F%E5%B9%B3%E5%8F%B0/"/>
       <url>/2022/07/31/%E6%98%BE%E5%BE%AE%E5%B0%8F%E5%B9%B3%E5%8F%B0/</url>
       
-        <content type="html"><![CDATA[<p>先放图片</p><img src="/2022/07/31/%E6%98%BE%E5%BE%AE%E5%B0%8F%E5%B9%B3%E5%8F%B0/1.jpg" class=""><img src="/2022/07/31/%E6%98%BE%E5%BE%AE%E5%B0%8F%E5%B9%B3%E5%8F%B0/2.jpg" class=""><p>这个是几天前制作的，制作这个的原因是：左边的耳机不出声了，本来想凑活着只用一个镜头来看那些小细密零件，结果镜头不好拿，就想着制作一个小平台，以后专门用来观察细小的东西。</p><p>结果到现在耳机都没修好，估摸着是插孔那块电线断了，现在只有一个出声，另一个不出声。</p><p>也录了一段视频：</p><video src='显微小平台/video.mp4' type='video/mp4' controls='controls' loop  width='30%' height='30%'></video>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>先放图片</p><center class="half">        <img src="1.jpg" width=300 height=500 class='fancybox'/>         <img src="2.jpg" width=300 height=500 class='fancybox'/></center><p>这个是几天前制作的，制作这个的原因是：左边的耳机不出声了，本来想凑活着只用一个镜头来看那些小细密零件，结果镜头不好拿，就想着制作一个小平台，以后专门用来观察细小的东西。</p><p>结果到现在耳机都没修好，估摸着是插孔那块电线断了，现在只有一个出声，另一个不出声。</p><p>也录了一段视频：</p><iframe width="854" height="480" src="video.mp4" frameborder="0" allowfullscreen></iframe><p>以后会不定期的把一些小发明放到这上面记录一下，以前发明的许多小玩意都没有纪念一下就被我拆了零件。</p>]]></content>
       
       
       <categories>
