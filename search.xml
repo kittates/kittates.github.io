@@ -2,6 +2,31 @@
 <search> 
   
   
+    
+    <entry>
+      <title>个人博客大体算是建好了</title>
+      <link href="/2022/07/31/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+      <url>/2022/07/31/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
+      
+        <content type="html"><![CDATA[<p>总体来说算是建好了</p><span id="more"></span><p>一直以来都想有一个自己的网站，记录一些自己的日常，奈何自己租用的服务器快到期了(还有半年:cry:)，只能将其移到github了。   </p><p>这个是从昨天晚上开始部署的，当时用了fluid主题，感觉这个太花了，不适合我这个简洁的人，所以第二天也就是今天，使用了default主题，在部署的过程中遇到了一些小问题，开源者也没有做详细的介绍，花费了很多时间来搞这些问题。后面还有一些小的问题，这些就不着急了，后面慢慢的修补吧:smile:。</p><img src="/2022/07/31/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/a.jpg" class="" title="这是一个新的博客的图片的说明">]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> blog </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
   
   
 </search>
