@@ -6,7 +6,7 @@
   <link href="https://kittates.github.io/atom.xml" rel="self"/>
   
   <link href="https://kittates.github.io/"/>
-  <updated>2024-01-05T12:09:54.246Z</updated>
+  <updated>2024-02-01T15:00:50.559Z</updated>
   <id>https://kittates.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>鼠鼠！</title>
+    <link href="https://kittates.github.io/2024/02/01/2024-2-1/"/>
+    <id>https://kittates.github.io/2024/02/01/2024-2-1/</id>
+    <published>2024-02-01T14:57:00.000Z</published>
+    <updated>2024-02-01T15:00:50.559Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img class="emoji" draggable="false" alt="😱" src="https://twemoji.maxcdn.com/v/14.0.2/72x72/1f631.png"></p><p><img src="/2024/02/01/2024-2-1/Snipaste_2024-01-29_21-05-19.png" alt></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="diary" scheme="https://kittates.github.io/categories/diary/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>git push,Time out?</title>
