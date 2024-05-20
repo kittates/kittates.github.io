@@ -1,0 +1,1528 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1" theme-name="Stellar" theme-version="1.28.1">
+  
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  
+  <title>Typescript - kittates's blog</title>
+
+  
+    <meta name="description" content="Reference 第一章 快速入门 ¶0、TypeScript简介  TypeScript是JavaScript的超集。 它对JS进行了扩展，向JS中引入了类型的概念，并添加了许多新的特性。 TS代码需要通过编译器编译为JS，然后再交由JS解析器执行。 TS完全兼容JS，换言之，任何的JS代码都可以直接当成JS使用。 相较于JS而言，TS拥有了静态类型，更加严格的语法，更强大的功能；TS可以在代">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Typescript">
+<meta property="og:url" content="https://kittates.github.io/2024/05/20/2024-5-20/">
+<meta property="og:site_name" content="kittates&#39;s blog">
+<meta property="og:description" content="Reference 第一章 快速入门 ¶0、TypeScript简介  TypeScript是JavaScript的超集。 它对JS进行了扩展，向JS中引入了类型的概念，并添加了许多新的特性。 TS代码需要通过编译器编译为JS，然后再交由JS解析器执行。 TS完全兼容JS，换言之，任何的JS代码都可以直接当成JS使用。 相较于JS而言，TS拥有了静态类型，更加严格的语法，更强大的功能；TS可以在代">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://kittates.github.io/2024/05/20/2024-5-20/image-20240304151722975.png">
+<meta property="og:image" content="https://kittates.github.io/2024/05/20/2024-5-20/image-20240304151910540.png">
+<meta property="og:image" content="https://kittates.github.io/2024/05/20/2024-5-20/image-20240304161726542.png">
+<meta property="og:image" content="https://kittates.github.io/2024/05/20/2024-5-20/image-20240305141645661.png">
+<meta property="og:image" content="https://kittates.github.io/2024/05/20/2024-5-20/image-20240305184543981.png">
+<meta property="article:published_time" content="2024-05-20T12:42:13.000Z">
+<meta property="article:modified_time" content="2024-05-20T12:48:16.835Z">
+<meta property="article:author" content="kittates">
+<meta property="article:tag" content="typescript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kittates.github.io/2024/05/20/2024-5-20/image-20240304151722975.png">
+  
+  
+  
+  <meta name="keywords" content="typescript">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="kittates's blog" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.28.1">
+
+  
+    <link rel="shortcut icon" href="/assets/website/favicon.png">
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/assets/website/avatar.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">kittates's blog</div><div class="sub normal cap">hello world</div><div class="sub hover cap" style="opacity:0"> 鼠鼠我啊!</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/" style="color:#1BCDFC"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"/><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"/></svg></a><a class="nav-item" title="分类" href="/categories/" style="color:#3DC550"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M14.25 4.48v3.057c0 .111 0 .27.02.406a.936.936 0 0 0 .445.683a.96.96 0 0 0 .783.072c.13-.04.272-.108.378-.159L17 8.005l1.124.534c.106.05.248.119.378.16a.958.958 0 0 0 .783-.073a.936.936 0 0 0 .444-.683c.021-.136.021-.295.021-.406V3.031c.113-.005.224-.01.332-.013C21.154 2.98 22 3.86 22 4.933v11.21c0 1.112-.906 2.01-2.015 2.08c-.97.06-2.108.179-2.985.41c-1.082.286-1.99 1.068-3.373 1.436c-.626.167-1.324.257-1.627.323V5.174c.32-.079 1.382-.203 1.674-.371c.184-.107.377-.216.576-.323m5.478 8.338a.75.75 0 0 1-.546.91l-4 1a.75.75 0 0 1-.364-1.456l4-1a.75.75 0 0 1 .91.546" clip-rule="evenodd"/><path fill="currentColor" d="M18.25 3.151c-.62.073-1.23.18-1.75.336a8.2 8.2 0 0 0-.75.27v3.182l.75-.356l.008-.005a1.13 1.13 0 0 1 .492-.13c.047 0 .094.004.138.01c.175.029.315.1.354.12l.009.005l.749.356V3.647z"/><path fill="currentColor" d="M12 5.214c-.334-.064-1.057-.161-1.718-.339C8.938 4.515 8.05 3.765 7 3.487c-.887-.234-2.041-.352-3.018-.412C2.886 3.007 2 3.9 2 4.998v11.146c0 1.11.906 2.01 2.015 2.079c.97.06 2.108.179 2.985.41c.486.129 1.216.431 1.873.726c1.005.451 2.052.797 3.127 1.034z" opacity=".5"/><path fill="currentColor" d="M4.273 12.818a.75.75 0 0 1 .91-.545l4 1a.75.75 0 1 1-.365 1.455l-4-1a.75.75 0 0 1-.545-.91m.909-4.545a.75.75 0 1 0-.364 1.455l4 1a.75.75 0 0 0 .364-1.455z"/></svg></a><a class="nav-item" title="相册" href="/photo/" style="color:#FA6400"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M20 12a8 8 0 1 1-16 0a8 8 0 0 1 16 0" opacity=".5"/><path fill="currentColor" d="M17.712 5.453c1.047-.193 2.006-.259 2.797-.152c.77.103 1.536.393 1.956 1.064c.446.714.312 1.542-.012 2.258c-.33.728-.918 1.499-1.672 2.268c-1.516 1.547-3.836 3.226-6.597 4.697c-2.763 1.472-5.495 2.484-7.694 2.92c-1.095.217-2.098.299-2.923.201c-.8-.095-1.6-.383-2.032-1.075c-.47-.752-.296-1.63.07-2.379c.375-.768 1.032-1.586 1.872-2.403L4 12.416c0 .219.083.71.168 1.146c.045.23.09.444.123.596c-.652.666-1.098 1.263-1.339 1.756c-.277.567-.208.825-.145.925c.072.116.305.305.937.38c.609.073 1.44.018 2.455-.183c2.02-.4 4.613-1.351 7.28-2.772c2.667-1.42 4.85-3.015 6.23-4.423c.694-.707 1.15-1.334 1.377-1.836c.233-.515.167-.75.107-.844c-.07-.112-.289-.294-.883-.374c-.542-.072-1.272-.041-2.163.112L16.87 5.656c.338-.101.658-.17.842-.203"/></svg></a><a class="nav-item" title="关于" href="/about/" style="color:#F44336"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"/><path fill="currentColor" d="M10.99 14.308c-1.327-.978-3.49-2.84-3.49-4.593c0-2.677 2.475-3.677 4.5-1.609c2.025-2.068 4.5-1.068 4.5 1.609c0 1.752-2.163 3.615-3.49 4.593c-.454.335-.681.502-1.01.502c-.329 0-.556-.167-1.01-.502"/></svg></a></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/20/2024-5-20/"><span class="title">Typescript</span></a><a class="item title" href="/2024/05/03/2024-5-3/"><span class="title">风起了</span></a><a class="item title" href="/2024/03/03/2024-3-3/"><span class="title">codepen test</span></a><a class="item title" href="/2024/02/08/2024-2-8/"><span class="title">this指向</span></a><a class="item title" href="/2022/09/19/javascript%E8%BF%9B%E9%98%B6/"><span class="title">javascript进阶</span></a><a class="item title" href="/2024/02/05/2024-2-5/"><span class="title">小学</span></a><a class="item title" href="/2024/02/01/2024-2-1/"><span class="title">鼠鼠！</span></a><a class="item title" href="/2024/01/05/2024-1-5/"><span class="title">git push,Time out?</span></a><a class="item title" href="/2024/01/03/2024-1-3/"><span class="title">引用名正则替换</span></a><a class="item title" href="/2023/12/20/2023-12-20/"><span class="title">马上就要上考场了</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/kittates" target="_blank" rel="external nofollow noopener noreferrer"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/assets/placeholder/social/github.svg"/></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/typescript/">typescript</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-05-20T12:42:13.000Z">2024-05-20</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-05-20T12:48:16.835Z">2024-05-20</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>Typescript</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><p><a target="_blank" rel="noopener" href="https://ts.xcatliu.com/advanced/generics.html" style="color: red">Reference</a></p>
+<h1>第一章 快速入门</h1>
+<h2 id="0、TypeScript简介"><a class="header-anchor" href="#0、TypeScript简介">¶</a>0、TypeScript简介</h2>
+<ol>
+<li>TypeScript是JavaScript的超集。</li>
+<li>它对JS进行了扩展，向JS中引入了类型的概念，并添加了许多新的特性。</li>
+<li>TS代码需要通过编译器编译为JS，然后再交由JS解析器执行。</li>
+<li>TS完全兼容JS，换言之，任何的JS代码都可以直接当成JS使用。</li>
+<li>相较于JS而言，TS拥有了静态类型，更加严格的语法，更强大的功能；TS可以在代码执行前就完成代码的检查，减小了运行时异常的出现的几率；TS代码可以编译为任意版本的JS代码，可有效解决不同JS运行环境的兼容问题；同样的功能，TS的代码量要大于JS，但由于TS的代码结构更加清晰，变量类型更加明确，在后期代码的维护中TS却远远胜于JS。</li>
+</ol>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2024/05/20/2024-5-20/image-20240304151722975.png" alt="image-20240304151722975" style="zoom: 67%;">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2024/05/20/2024-5-20/image-20240304151910540.png" alt="image-20240304151910540" style="zoom:67%;">
+<h2 id="1、TypeScript-开发环境搭建"><a class="header-anchor" href="#1、TypeScript-开发环境搭建">¶</a>1、TypeScript 开发环境搭建</h2>
+<p>安装typescript</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i typescript -g</span><br></pre></td></tr></table></figure>
+<p>创建一个hello.ts文件</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;hello world&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>编译</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tsc hello.ts</span><br></pre></td></tr></table></figure>
+<p>编译完成后当前目录就有了对应的JS文件了</p>
+<h2 id="2、基本类型"><a class="header-anchor" href="#2、基本类型">¶</a>2、基本类型</h2>
+<ul>
+<li>
+<p>类型声明</p>
+<ul>
+<li>
+<p>类型声明是TS非常重要的一个特点</p>
+</li>
+<li>
+<p>通过类型声明可以指定TS中变量（参数、形参）的类型</p>
+</li>
+<li>
+<p>指定类型后，当为变量赋值时，TS编译器会自动检查值是否符合类型声明，符合则赋值，否则报错</p>
+</li>
+<li>
+<p>简而言之，类型声明给变量设置了类型，使得变量只能存储某种类型的值</p>
+</li>
+<li>
+<p>语法：</p>
+  <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> 变量: 类型;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> 变量: 类型 = 值;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">参数: 类型, 参数: 类型</span>): 类型&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>
+<p>自动类型判断</p>
+<ul>
+<li>
+<p>TS拥有自动的类型判断机制</p>
+</li>
+<li>
+<p>当对变量的声明和赋值是同时进行的，TS编译器会自动判断变量的类型</p>
+</li>
+<li>
+<p>所以如果你的变量的声明和赋值时同时进行的，可以省略掉类型声明</p>
+</li>
+</ul>
+<p>例如如下：</p>
+  <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> c = <span class="literal">true</span>;	<span class="comment">//c会被自动识别为Boolen型</span></span><br></pre></td></tr></table></figure>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2024/05/20/2024-5-20/image-20240304161726542.png" alt="image-20240304161726542"></p>
+<p>如果发现类型不匹配，就会报错。即使报错，也能编译通过。之后可以设置使其报错无法通过编译。</p>
+<p>可以通过指定相应的配置，使其编译成指定的JS版本，后面学到。</p>
+<p>但是对于下面：</p>
+  <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">a:<span class="built_in">number</span>,b:<span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">fun</span>(<span class="number">123</span>,<span class="string">&quot;123&quot;</span>));</span><br></pre></td></tr></table></figure>
+<p>输出的结果仍未&quot;123123&quot;，这是因为没有规定fun返回的类型</p>
+<p>修改后：</p>
+  <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">a:<span class="built_in">number</span>,b:<span class="built_in">number</span></span>): <span class="built_in">number</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">fun</span>(<span class="number">123</span>,<span class="number">1</span>));</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>类型：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">例子</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">number</td>
+<td style="text-align:center">1, -33, 2.5</td>
+<td style="text-align:center">任意数字</td>
+</tr>
+<tr>
+<td style="text-align:center">string</td>
+<td style="text-align:center">‘hi’, “hi”, <code>hi</code></td>
+<td style="text-align:center">任意字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">true、false</td>
+<td style="text-align:center">布尔值true或false</td>
+</tr>
+<tr>
+<td style="text-align:center">字面量</td>
+<td style="text-align:center">其本身</td>
+<td style="text-align:center">限制变量的值就是该字面量的值</td>
+</tr>
+<tr>
+<td style="text-align:center">any</td>
+<td style="text-align:center">*</td>
+<td style="text-align:center">任意类型</td>
+</tr>
+<tr>
+<td style="text-align:center">unknown</td>
+<td style="text-align:center">*</td>
+<td style="text-align:center">类型安全的any</td>
+</tr>
+<tr>
+<td style="text-align:center">void</td>
+<td style="text-align:center">空值（undefined）</td>
+<td style="text-align:center">没有值（或undefined）</td>
+</tr>
+<tr>
+<td style="text-align:center">never</td>
+<td style="text-align:center">没有值</td>
+<td style="text-align:center">不能是任何值</td>
+</tr>
+<tr>
+<td style="text-align:center">object</td>
+<td style="text-align:center">{name:‘孙悟空’}</td>
+<td style="text-align:center">任意的JS对象</td>
+</tr>
+<tr>
+<td style="text-align:center">array</td>
+<td style="text-align:center">[1,2,3]</td>
+<td style="text-align:center">任意JS数组</td>
+</tr>
+<tr>
+<td style="text-align:center">tuple</td>
+<td style="text-align:center">[4,5]</td>
+<td style="text-align:center">元素，TS新增类型，固定长度数组</td>
+</tr>
+<tr>
+<td style="text-align:center">enum</td>
+<td style="text-align:center">enum{A, B}</td>
+<td style="text-align:center">枚举，TS中新增类型</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>number</p>
+<ul>
+<li>
+<pre><code class="language-typescript">  let decimal: number = 6;
+  let hex: number = 0xf00d;
+  let binary: number = 0b1010;
+  let octal: number = 0o744;
+  let big: bigint = 100n;
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- boolean</span><br><span class="line"></span><br><span class="line">    - ```typescript</span><br><span class="line">        let isDone: boolean = false;</span><br></pre></td></tr></table></figure>
+
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>string</p>
+<ul>
+<li>
+<pre><code class="language-typescript">  let color: string = &quot;blue&quot;;
+  color = 'red';
+  
+  let fullName: string = `Bob Bobbington`;
+  let age: number = 37;
+  let sentence: string = `Hello, my name is $&#123;fullName&#125;.
+  
+  `I'll be $&#123;age + 1&#125; years old next month.`;
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 字面量</span><br><span class="line"></span><br><span class="line">    - 也可以使用字面量去指定变量的类型，通过字面量可以确定变量的取值范围</span><br><span class="line"></span><br><span class="line">    - ```typescript</span><br><span class="line">        let a: 10;	//a只能为10，不能再修改了</span><br><span class="line">        let color: &#x27;red&#x27; | &#x27;blue&#x27; | &#x27;black&#x27;;	//color的取值范围为[red、blue、black]</span><br><span class="line">        let num: 1 | 2 | 3 | 4 | 5;</span><br><span class="line">        let c = boolean | string;	//可以使用 | 来连接多个类型（联合类型）</span><br><span class="line">        c = true;</span><br><span class="line">        c = &#x27;hello&#x27;;</span><br></pre></td></tr></table></figure>
+
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>any: 不建议使用</p>
+<ul>
+<li>
+<pre><code class="language-typescript">  let d: any = 4;
+  d = 'hello';
+  d = true;
+  
+  let c: any;
+  c = 1
+  c = 'h'
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">上面的为显示的any</span><br><span class="line"></span><br><span class="line">下面为隐式的any</span><br><span class="line"></span><br><span class="line">```ts</span><br><span class="line">let d;	//声明变量时不指定类型，则TS解析器会自动判断变量的类型为any,隐式的any</span><br><span class="line">d = &#x27;hello&#x27;;</span><br><span class="line">d = true;</span><br></pre></td></tr></table></figure>
+
+</code></pre>
+</li>
+</ul>
+<p>可以赋值给其他变量，如下：</p>
+  <figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">a</span>:<span class="built_in">any</span>,<span class="attr">b</span>:<span class="built_in">number</span>;</span><br><span class="line">a = <span class="number">1</span>;</span><br><span class="line">b = a;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>unknown：实际上是一个类型安全的any，不能赋值给其它变量</p>
+  <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">notSure</span>: <span class="built_in">unknown</span> = <span class="number">4</span>;</span><br><span class="line">notSure = <span class="string">&#x27;hello&#x27;</span>;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">a</span>:<span class="built_in">unknown</span>,<span class="attr">b</span>:<span class="built_in">number</span>;</span><br><span class="line">a = <span class="number">1</span>;</span><br><span class="line">b = a;	<span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+<p>不能将未知类型的变量赋值给一个确定类型的变量，但是两个unknown可以相互赋值</p>
+</li>
+<li>
+<p>void：主要用于为函数设置为空的返回值</p>
+<ul>
+<li>
+<pre><code class="language-typescript">  let unusable: void = undefined;
+  function fun()&#123;&#125;	//没有明确指出，默认为void类型
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- never：通常用于指示一个函数永远不会正常返回，例如抛出错误、进入无限循环。</span><br><span class="line"></span><br><span class="line">- ```typescript</span><br><span class="line">    function error(message: string): never &#123;</span><br><span class="line">      throw new Error(message);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>object（没啥用）</p>
+<ul>
+<li>
+<pre><code class="language-typescript">  let obj: object = &#123;&#125;;
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- &#123;&#125; ：可以定义内部属性的类型</span><br><span class="line"></span><br><span class="line">    ```ts</span><br><span class="line">    let b: &#123;name: string,age?: number&#125;	//?表示age为可选项</span><br><span class="line">    b = &#123;name: &#x27;kittates&#x27;&#125;</span><br><span class="line">    b = &#123;name: &#x27;abc&#x27;,age: 10&#125;;</span><br></pre></td></tr></table></figure>
+
+</code></pre>
+</li>
+</ul>
+  <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">b</span>: &#123;<span class="attr">name</span>: <span class="string">&#x27;kittates&#x27;</span>,<span class="attr">age</span>: <span class="number">12</span>&#125;;	<span class="comment">//b只能为&#123;name: &#x27;kittates&#x27;,age: 12&#125;，否则报错</span></span><br><span class="line">b = &#123;<span class="attr">name</span>: <span class="string">&#x27;kittates&#x27;</span>,<span class="attr">age</span>: <span class="number">12</span>&#125;;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">c</span>: &#123;<span class="attr">name</span>: <span class="built_in">string</span>,[<span class="attr">propName</span>:<span class="built_in">string</span>]:<span class="built_in">any</span>&#125;	<span class="comment">//propName可以取任何名，只是在这里代指一下</span></span><br><span class="line">c = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;kittates&#x27;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">12</span>,</span><br><span class="line">    <span class="attr">product</span>: &#123;</span><br><span class="line">        <span class="attr">item</span>: <span class="string">&#x27;abc&#x27;</span>,</span><br><span class="line">        <span class="attr">price</span>: <span class="number">12</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c);</span><br></pre></td></tr></table></figure>
+<p><code>[propName: string]: any</code>: 这部分使用了索引签名。它表示 <code>c</code> 可以有任意数量的其他属性，这些属性的键名是字符串类型，而对应的值可以是任意类型（<code>any</code>）。<strong>这使得 <code>c</code> 可以包含除了 <code>name</code> 外的其他属性</strong>，并且这些属性的值可以是任何类型。</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>设置函数结构的类型声明</p>
+  <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明了c的两个参数为number型,且返回值也为number</span></span><br><span class="line"><span class="comment">//a、b可以取任何名，只是在这里代指一下</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">c</span>: <span class="function">(<span class="params">a:<span class="built_in">number</span>,b:<span class="built_in">number</span></span>) =&gt;</span> <span class="built_in">number</span>;	</span><br><span class="line">c = <span class="keyword">function</span>(<span class="params">n1:<span class="built_in">number</span>,n2:<span class="built_in">number</span></span>):<span class="built_in">number</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> n1+n2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>
+<p>array</p>
+  <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">list</span>: <span class="built_in">number</span>[] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];	<span class="comment">//声明number类型的数组</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">list</span>: <span class="title class_">Array</span>&lt;<span class="built_in">number</span>&gt; = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br></pre></td></tr></table></figure>
+  <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">list</span>: <span class="built_in">string</span>[];	<span class="comment">//声明string类型的数组</span></span><br><span class="line">list = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="attr">list1</span>: <span class="title class_">Array</span>&lt;<span class="built_in">string</span>&gt;;</span><br><span class="line">list1 = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>tuple：元组-固定长度的数组</p>
+<ul>
+<li>
+<pre><code class="language-typescript">  let x: [string, number];	//第一个元素为string，第二个元素为string
+  x = [&quot;hello&quot;, 10]; 
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- enum</span><br><span class="line"></span><br><span class="line">    - ```typescript</span><br><span class="line">        enum Color &#123;</span><br><span class="line">          Red,</span><br><span class="line">          Green,</span><br><span class="line">          Blue,</span><br><span class="line">        &#125;</span><br><span class="line">        let c: Color = Color.Green;</span><br><span class="line">        </span><br><span class="line">        enum Color &#123;</span><br><span class="line">          Red = 1,</span><br><span class="line">          Green,</span><br><span class="line">          Blue,</span><br><span class="line">        &#125;</span><br><span class="line">        let c: Color = Color.Green;</span><br><span class="line">        </span><br><span class="line">        enum Color &#123;</span><br><span class="line">          Red = 1,</span><br><span class="line">          Green = 2,</span><br><span class="line">          Blue = 4,</span><br><span class="line">        &#125;</span><br><span class="line">        let c: Color = Color.Green;</span><br><span class="line">        </span><br><span class="line">        enum Gender &#123;</span><br><span class="line">            male = 0,</span><br><span class="line">            female = 1</span><br><span class="line">        &#125;</span><br><span class="line">        let i: &#123;name: string,gender: Gender&#125;;</span><br><span class="line">        i = &#123;name: &quot;kittates&quot;,gender: Gender.male&#125;;</span><br></pre></td></tr></table></figure>
+
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>类型断言</p>
+<ul>
+<li>
+<p>有些情况下，变量的类型对于我们来说是很明确，但是TS编译器却并不清楚，此时，可以通过类型断言来告诉编译器变量的类型，断言有两种形式：</p>
+<ul>
+<li>
+<p>第一种：as</p>
+<ul>
+<li>
+<pre><code class="language-typescript">  let someValue: unknown = &quot;this is a string&quot;;
+  let strLength: number = (someValue as string).length;
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 第二种：&lt;string&gt; &lt;number&gt;</span><br><span class="line"></span><br><span class="line">    - ```typescript</span><br><span class="line">        let someValue: unknown = &quot;this is a string&quot;;</span><br><span class="line">        let strLength: number = (&lt;string&gt;someValue).length;</span><br></pre></td></tr></table></figure>
+
+
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p>&amp;型</p>
+  <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">j</span>: &#123;<span class="attr">name</span>: <span class="built_in">string</span>&#125; &amp; &#123;<span class="attr">age</span>: <span class="built_in">number</span>&#125;;</span><br><span class="line">j = &#123;<span class="attr">name</span>: <span class="string">&quot;kittates&quot;</span>,<span class="attr">age</span>: <span class="number">12</span>&#125;;</span><br></pre></td></tr></table></figure>
+<p>声明了j必须包含name:string类型的数据和age:number类型的数据，不能多，也不能少。</p>
+</li>
+<li>
+<p>类型别名</p>
+  <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> myType = <span class="number">1</span> | <span class="number">2</span> | <span class="number">3</span> | <span class="number">4</span> | <span class="number">5</span>		<span class="comment">//另起一个名字</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">k</span>: myType</span><br><span class="line">k = <span class="number">2</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="3、TS编译选项"><a class="header-anchor" href="#3、TS编译选项">¶</a>3、TS编译选项</h2>
+<ul>
+<li>
+<p>自动编译文件</p>
+<ul>
+<li>
+<p>编译文件时，使用 -w 指令后，TS编译器会自动监视文件的变化，并在文件发生变化时对文件进行重新编译。</p>
+</li>
+<li>
+<p>示例：</p>
+<ul>
+<li>
+<pre><code class="language-shell">  tsc xxx.ts -w
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    如果要监视每个文件，就要为每个文件都开启一个tsc监视，会显得繁琐，所以需要能够对整个项目监视并自动重新编译。</span><br><span class="line"></span><br><span class="line">- 自动编译整个项目</span><br><span class="line"></span><br><span class="line">    - 如果**直接使用tsc指令**，则可以自动将当前项目下的所有ts文件编译为js文件。</span><br><span class="line"></span><br><span class="line">    - 但是能直接使用tsc命令的前提时，要先**在项目根目录下创建一个ts的配置文件 tsconfig.json**</span><br><span class="line"></span><br><span class="line">    - tsconfig.json是一个JSON文件，添加配置文件后，只需只需 tsc 命令即可完成对整个项目的编译</span><br><span class="line"></span><br><span class="line">        使用`tsc --init`命令会自动生成相应的`tsconfig.json`文件，然后在使用`tsc`或者`tsc -w`即可</span><br><span class="line"></span><br><span class="line">    - 配置选项：</span><br><span class="line"></span><br><span class="line">        &lt;p style=&quot;color: pink&quot;&gt;一个*表示任意文件，**表示任意目录&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">        - include</span><br><span class="line"></span><br><span class="line">            - 定义希望被编译文件所在的目录</span><br><span class="line"></span><br><span class="line">            - 默认值：[&quot;\*\*/\*&quot;]</span><br><span class="line"></span><br><span class="line">            - 示例：</span><br><span class="line"></span><br><span class="line">                - ```json</span><br><span class="line">                    &quot;include&quot;:[&quot;src/**/*&quot;, &quot;tests/**/*&quot;]</span><br></pre></td></tr></table></figure>
+
+      - 上述示例中，所有src目录和tests目录下的文件都会被编译
+
+</code></pre>
+</li>
+<li>
+<p>exclude</p>
+<ul>
+<li>
+<p>定义需要排除在外的目录</p>
+</li>
+<li>
+<p>默认值：[“node_modules”, “bower_components”, “jspm_packages”]</p>
+</li>
+<li>
+<p>示例：</p>
+<ul>
+<li>
+<pre><code class="language-json">  &quot;exclude&quot;: [&quot;./src/hello/**/*&quot;]
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">        - 上述示例中，src下hello目录下的文件都不会被编译</span><br><span class="line"></span><br><span class="line">- extends</span><br><span class="line"></span><br><span class="line">    - 定义被继承的配置文件</span><br><span class="line"></span><br><span class="line">    - 示例：</span><br><span class="line"></span><br><span class="line">        - ```json</span><br><span class="line">            &quot;extends&quot;: &quot;./configs/base&quot;</span><br></pre></td></tr></table></figure>
+
+</code></pre>
+</li>
+<li>
+<p>上述示例中，当前配置文件中会自动包含config目录下base.json中的所有配置信息</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>files</p>
+<ul>
+<li>
+<p>指定被编译文件的列表，只有<strong>需要编译的文件少时</strong>才会用到</p>
+</li>
+<li>
+<p>示例：</p>
+<ul>
+<li>
+<pre><code class="language-json">  &quot;files&quot;: [
+      &quot;core.ts&quot;,
+      &quot;sys.ts&quot;,
+      &quot;types.ts&quot;,
+      &quot;scanner.ts&quot;,
+      &quot;parser.ts&quot;,
+      &quot;utilities.ts&quot;,
+      &quot;binder.ts&quot;,
+      &quot;checker.ts&quot;,
+      &quot;tsc.ts&quot;
+    ]
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    - 列表中的文件都会被TS编译器所编译</span><br><span class="line"></span><br><span class="line">- compilerOptions</span><br><span class="line"></span><br><span class="line">    - 编译选项是配置文件中**非常重要**也**比较复杂**的配置选项</span><br><span class="line"></span><br><span class="line">    - 在compilerOptions中包含多个子选项，用来完成对编译的配置</span><br><span class="line"></span><br><span class="line">        - 项目选项</span><br><span class="line"></span><br><span class="line">            - target</span><br><span class="line"></span><br><span class="line">                - 设置ts代码编译的目标版本</span><br><span class="line"></span><br><span class="line">                - 可选值：</span><br><span class="line"></span><br><span class="line">                    - ES3（默认）、ES5、ES6/ES2015、ES7/ES2016、ES2017、ES2018、ES2019、ES2020、ESNext(表示最新版的)</span><br><span class="line"></span><br><span class="line">                - 示例：</span><br><span class="line"></span><br><span class="line">                    - ```json</span><br><span class="line">                        &quot;compilerOptions&quot;: &#123;</span><br><span class="line">                            &quot;target&quot;: &quot;ES6&quot;</span><br><span class="line">                        &#125;</span><br></pre></td></tr></table></figure>
+
+              - 如上设置，我们所编写的ts代码将会被编译为ES6版本的js代码
+
+      - lib：一般不需要修改，除非是在非web环境下
+
+          - 指定代码运行时所包含的库（宿主环境）
+
+          - 可选值：
+
+              - ES5、ES6/ES2015、ES7/ES2016、ES2017、ES2018、ES2019、ES2020、ESNext、DOM、WebWorker、ScriptHost ......
+
+          - 示例：
+
+              - ```json
+                  &quot;compilerOptions&quot;: &#123;
+                      &quot;target&quot;: &quot;ES6&quot;,
+                      &quot;lib&quot;: [&quot;ES6&quot;, &quot;DOM&quot;],
+                      &quot;outDir&quot;: &quot;dist&quot;,
+                      &quot;outFile&quot;: &quot;dist/aa.js&quot;
+                  &#125;
+                  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- module</span><br><span class="line"></span><br><span class="line">    - 设置编译后代码使用的模块化系统</span><br><span class="line"></span><br><span class="line">    - 可选值：</span><br><span class="line"></span><br><span class="line">        - CommonJS(nodejs方式)、UMD、AMD、System、ES2020、ESNext、None</span><br><span class="line"></span><br><span class="line">    - 示例：</span><br><span class="line"></span><br><span class="line">        - ```typescript</span><br><span class="line">            &quot;compilerOptions&quot;: &#123;</span><br><span class="line">                &quot;module&quot;: &quot;CommonJS&quot;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+
+      - outDir
+
+          - 编译后文件的所在目录
+
+          - 默认情况下，编译后的js文件会和ts文件位于相同的目录，设置outDir后可以改变编译后文件的位置
+
+          - 示例：
+
+              - ```json
+                  &quot;compilerOptions&quot;: &#123;
+                      &quot;outDir&quot;: &quot;dist&quot;
+                  &#125;
+                  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">        - 设置后编译后的js文件将会生成到dist目录</span><br><span class="line"></span><br><span class="line">- outFile</span><br><span class="line"></span><br><span class="line">    - **将所有的文件编译为一个js文件**</span><br><span class="line"></span><br><span class="line">    - 默认会将所有的编写在全局作用域中的代码合并为一个js文件，如果module制定了None、System或AMD则会将模块一起合并到文件之中</span><br><span class="line"></span><br><span class="line">    - 示例：</span><br><span class="line"></span><br><span class="line">        - ```json</span><br><span class="line">            &quot;compilerOptions&quot;: &#123;</span><br><span class="line">                &quot;outFile&quot;: &quot;dist/app.js&quot;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+
+          &lt;p style=&quot;color: pink&quot;&gt;但是outFile 仅支持 &quot;amd&quot; 和 &quot;system&quot; 模块。&lt;/p&gt;
+
+      - rootDir
+
+          - 指定代码的根目录，默认情况下编译后文件的目录结构会以最长的公共目录为根目录，通过rootDir可以手动指定根目录
+
+          - 示例：
+
+              - ```json
+                  &quot;compilerOptions&quot;: &#123;
+                      &quot;rootDir&quot;: &quot;./src&quot;
+                  &#125;
+                  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- allowJs</span><br><span class="line"></span><br><span class="line">    - 是否对js文件编译，默认是不对JS编译的。如果源文件中含有JS文件，allowJs为false时，目标文件中不会有JS文件</span><br><span class="line"></span><br><span class="line">- checkJs</span><br><span class="line"></span><br><span class="line">    - 是否对js文件进行检查</span><br><span class="line"></span><br><span class="line">    - 示例：</span><br><span class="line"></span><br><span class="line">        - ```json</span><br><span class="line">            &quot;compilerOptions&quot;: &#123;</span><br><span class="line">                &quot;allowJs&quot;: true,</span><br><span class="line">                &quot;checkJs&quot;: true</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+
+      - removeComments
+
+          - 是否删除注释
+          - 默认值：false
+
+      - noEmit
+
+          - 不对代码进行编译
+          - 默认值：false
+
+      - noEmitOnError:当有错误时不生成编译后的文件
+
+      - sourceMap
+
+          - 是否生成sourceMap
+          - 默认值：false
+
+          
+
+  - 严格检查
+
+      - strict：建议开启，所以其默认值为true
+
+          - 启用所有的严格检查，默认值为true，**设置后相当于开启了所有的严格检查**
+
+          js中在文件开头使用`&quot;use strict&quot;;`就开启了严格模式，如下：
+
+          <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="built_in">exports</span>, <span class="string">&quot;__esModule&quot;</span>, &#123; <span class="attr">value</span>: <span class="literal">true</span> &#125;);</span><br><span class="line"><span class="keyword">const</span> hello_js_1 = <span class="built_in">require</span>(<span class="string">&quot;./hello.js&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(hello_js_1.<span class="property">default</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+          [参考1](https://wangdoc.com/javascript/oop/strict)
+
+          [参考2](https://www.ruanyifeng.com/blog/2013/01/javascript_strict_mode.html)
+
+      - alwaysStrict
+
+          - 总是以严格模式对代码进行编译
+
+      - noImplicitAny
+
+          - 禁止隐式的any类型
+
+          没有指定一个变量的类型时默认为any，所以使用noImplicityAny可以禁用any类型
+
+      - noImplicitThis
+
+          - 禁止类型不明确的this，例如如下就会报错
+
+          <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="variable language_">this</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          如果指明了this的类型，就可以使用，如下：
+
+          <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params"><span class="variable language_">this</span>:Window</span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="variable language_">this</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+
+      - strictBindCallApply
+
+          - 严格检查bind、call和apply的参数列表
+
+      - strictFunctionTypes
+
+          - 严格检查函数的类型
+
+      - strictNullChecks
+
+          - 严格的空值检查
+
+          <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> box1 = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;box&#x27;</span>);</span><br><span class="line">box1.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="number">111</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+          例如上述代码，获取的box1可能为空，所以设置strictNullChecks为true后，可能会检测错来
+
+          ![image-20240305103616210](image-20240305103616210.png)
+
+          可以改为如下：
+
+          <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> box1 = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;box&#x27;</span>);</span><br><span class="line"><span class="keyword">if</span>(box1) &#123;	<span class="comment">//先判断是否为Null，然后再去绑定事件</span></span><br><span class="line">    box1.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">alert</span>(<span class="number">111</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          如果已经确定了box1确实存在，则可以使用!来抑制。！为空抑制运算符
+
+          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let box1 = document.querySelector(&#x27;box&#x27;)!;</span><br></pre></td></tr></table></figure>
+
+      - strictPropertyInitialization
+
+          - 严格检查属性是否初始化 
+
+  - 额外检查
+
+      - noFallthroughCasesInSwitch
+          - 检查switch语句包含正确的break
+      - noImplicitReturns
+          - 检查函数没有隐式的返回值
+      - noUnusedLocals
+          - 检查未使用的局部变量
+      - noUnusedParameters
+          - 检查未使用的参数
+
+  - 高级
+
+      - allowUnreachableCode
+          - 检查不可达代码
+          - 可选值：
+              - true，忽略不可达代码
+              - false，不可达代码将引起错误
+      - noEmitOnError
+          - 有错误的情况下不进行编译
+          - 默认值：false
+
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="4、webpack"><a class="header-anchor" href="#4、webpack">¶</a>4、webpack</h2>
+<p style="color: red">不同的版本可能会报错，配置信息看snake项目</p>
+<ul>
+<li>
+<p>通常情况下，实际开发中我们都需要使用构建工具对代码进行打包，TS同样也可以结合构建工具一起使用，下边以webpack为例介绍一下如何结合构建工具使用TS。</p>
+</li>
+<li>
+<p>步骤：</p>
+<ol>
+<li>
+<p>初始化项目</p>
+<ul>
+<li>进入项目根目录，执行命令 <code> npm init -y</code>
+<ul>
+<li>主要作用：创建package.json文件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>下载构建工具</p>
+<ul>
+<li>
+<p><code>npm i -D webpack webpack-cli webpack-dev-server typescript ts-loader clean-webpack-plugin</code></p>
+<ul>
+<li>
+<p>共安装了7个包</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2024/05/20/2024-5-20/image-20240305141645661.png" alt="image-20240305141645661"></p>
+<ul>
+<li>
+<p>webpack</p>
+<ul>
+<li>构建工具webpack</li>
+</ul>
+</li>
+<li>
+<p>webpack-cli</p>
+<ul>
+<li>webpack的命令行工具</li>
+</ul>
+</li>
+<li>
+<p>webpack-dev-server</p>
+<ul>
+<li>webpack的开发服务器，可以根据项目的改变自动编译并运行，实时更新</li>
+</ul>
+<p>在<code>package.json</code>中需要添加:</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;start&quot;: &quot;webpack serve --open chrome.exe&quot;</span><br></pre></td></tr></table></figure>
+<p>启动webpack服务器，并在Chrome中运行。</p>
+<p>执行如下命令来启动服务器</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm run start</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">or</span></span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>typescript</p>
+<ul>
+<li>ts编译器</li>
+</ul>
+</li>
+<li>
+<p>ts-loader</p>
+<ul>
+<li>ts加载器，用于在webpack中编译ts文件</li>
+</ul>
+</li>
+<li>
+<p>html-webpack-plugin</p>
+<ul>
+<li>webpack中html插件，用来自动创建html文件，并引入相应的文件</li>
+</ul>
+</li>
+<li>
+<p>clean-webpack-plugin</p>
+<ul>
+<li>webpack中的清除插件，每次构建都会先清除dist目录，以保证dist中的内容都是当前最新的。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>根目录下创建webpack的配置文件webpack.config.js</p>
+<ul>
+<li>
+<pre><code class="language-javascript">  const path = require('path');
+  const HTMLWebpackPlugin = require('html-webpack-plugin');
+  const &#123;CleanWebpackPlugin&#125; = require('clean-webpack-plugin');
+  
+  module.exports = &#123;  
+      entry: './src/index.ts',    //指定入口文件
+      devtool: &quot;inline-source-map&quot;,
+      devServer: &#123;
+          contentBase: './dist'
+      &#125;,
+      output: &#123;   
+          path: path.resolve(__dirname,'dist'), //指定打包后的文件存放的目录
+          filename: 'bundle.js',  //打包后的文件名
+      &#125;,
+      module: &#123;   //指定webpack打包时要使用的模块
+          rules: [    //指定要加载的规则
+              &#123;
+                  test: /\.ts$/,  //test指定的是规则生效的文件，可以使用正则
+                  use: 'ts-loader',    //针对上面的文件使用ts-loader
+                  exclude: /node_modules/,    //要排除的文件
+              &#125;
+          ]
+      &#125;,
+      //放置插件
+      plugins: [
+          new CleanWebpackPlugin(),
+          new HTMLWebpackPlugin(&#123; //自动生成html文件，并引入先关的资源
+              title:'KITTATES',   //添加title配置项，设置生成的html title为KITTATES
+              // template: './src/index.html',   //生成的html模板是根据这个template生成的
+          &#125;),    
+      ],
+      resolve: &#123;
+          extensions: ['.ts','.js','.jsx'],    //ts、js都可以作为模块使用
+      &#125;
+  &#125;
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4. 根目录下创建tsconfig.json，配置可以根据自己需要，是一个`json`文件</span><br><span class="line"></span><br><span class="line">    - ```json</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;compilerOptions&quot;: &#123;</span><br><span class="line">                &quot;target&quot;: &quot;ES2015&quot;,</span><br><span class="line">                &quot;module&quot;: &quot;ES2015&quot;,</span><br><span class="line">                &quot;strict&quot;: true</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>修改package.json添加如下配置，是一个<code>json</code>文件</p>
+<ul>
+<li>
+<pre><code class="language-json">  &#123;
+    ...略...
+    &quot;scripts&quot;: &#123;
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,
+    &quot;build&quot;: &quot;webpack&quot;,	//可以通过npm run build命令直接执行webpack
+    &quot;serve&quot;: &quot;webpack serve --open --mode production&quot;	
+  &#125;,
+    ...略...
+  &#125;
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    6. 在src下创建ts文件，并在并命令行执行```npm run build```对代码进行编译，或者执行```npm start```来启动开发服务器</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">## 5、Babel</span><br><span class="line"></span><br><span class="line">&lt;p style=&quot;color:red&quot;&gt;这一块没看&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">- 经过一系列的配置，使得TS和webpack已经结合到了一起，除了webpack，开发中还经常需要结合babel来对代码进行转换以使其可以兼容到更多的浏览器，在上述步骤的基础上，通过以下步骤再将babel引入到项目中。</span><br><span class="line"></span><br><span class="line">    1. 安装依赖包：</span><br><span class="line"></span><br><span class="line">        - ```npm i -D @babel/core @babel/preset-env babel-loader core-js```</span><br><span class="line">        - 共安装了4个包，分别是：</span><br><span class="line">            - @babel/core</span><br><span class="line">                - babel的核心工具</span><br><span class="line">            - @babel/preset-env</span><br><span class="line">                - babel的预定义环境</span><br><span class="line">            - @babel-loader</span><br><span class="line">                - babel在webpack中的加载器</span><br><span class="line">            - core-js</span><br><span class="line">                - core-js用来使老版本的浏览器支持新版ES语法</span><br><span class="line"></span><br><span class="line">    2. 修改webpack.config.js配置文件</span><br><span class="line"></span><br><span class="line">        - ```javascript</span><br><span class="line">            ...略...</span><br><span class="line">            module: &#123;</span><br><span class="line">                rules: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        test: /\.ts$/,</span><br><span class="line">                        use: [</span><br><span class="line">                            &#123;</span><br><span class="line">                                loader: &quot;babel-loader&quot;,</span><br><span class="line">                                options:&#123;</span><br><span class="line">                                    presets: [</span><br><span class="line">                                        [</span><br><span class="line">                                            &quot;@babel/preset-env&quot;,</span><br><span class="line">                                            &#123;</span><br><span class="line">                                                &quot;targets&quot;:&#123;</span><br><span class="line">                                                    &quot;chrome&quot;: &quot;58&quot;,</span><br><span class="line">                                                    &quot;ie&quot;: &quot;11&quot;</span><br><span class="line">                                                &#125;,</span><br><span class="line">                                                &quot;corejs&quot;:&quot;3&quot;,</span><br><span class="line">                                                &quot;useBuiltIns&quot;: &quot;usage&quot;</span><br><span class="line">                                            &#125;</span><br><span class="line">                                        ]</span><br><span class="line">                                    ]</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;,</span><br><span class="line">                            &#123;</span><br><span class="line">                                loader: &quot;ts-loader&quot;,</span><br><span class="line">            </span><br><span class="line">                            &#125;</span><br><span class="line">                        ],</span><br><span class="line">                        exclude: /node_modules/</span><br><span class="line">                    &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">            ...略...</span><br></pre></td></tr></table></figure>
+
+</code></pre>
+</li>
+<li>
+<p>如此一来，使用ts编译后的文件将会再次被babel处理，使得代码可以在大部分浏览器中直接使用，可以在配置选项的targets中指定要兼容的浏览器版本。</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h1>第二章：面向对象</h1>
+<p style="color:pink">类是对象的抽象，对象是类的实例</p>
+<p>面向对象是程序中一个非常重要的思想，它被很多同学理解成了一个比较难，比较深奥的问题，其实不然。面向对象很简单，简而言之就是程序之中所有的操作都需要通过对象来完成。</p>
+<ul>
+<li>举例来说：
+<ul>
+<li>操作浏览器要使用window对象</li>
+<li>操作网页要使用document对象</li>
+<li>操作控制台要使用console对象</li>
+</ul>
+</li>
+</ul>
+<p>一切操作都要通过对象，也就是所谓的面向对象，那么对象到底是什么呢？这就要先说到程序是什么，计算机程序的本质就是对现实事物的抽象，抽象的反义词是具体，比如：照片是对一个具体的人的抽象，汽车模型是对具体汽车的抽象等等。程序也是对事物的抽象，在程序中我们可以表示一个人、一条狗、一把枪、一颗子弹等等所有的事物。一个事物到了程序中就变成了一个对象。</p>
+<p>在程序中所有的对象都被分成了两个部分数据和功能，以人为例，人的姓名、性别、年龄、身高、体重等属于数据，人可以说话、走路、吃饭、睡觉这些属于人的功能。数据在对象中被成为属性，而功能就被称为方法。所以简而言之，在程序中一切皆是对象。</p>
+<h2 id="1、类（class）"><a class="header-anchor" href="#1、类（class）">¶</a>1、类（class）</h2>
+<p>要想面向对象，操作对象，首先便要拥有对象，那么下一个问题就是如何创建对象。要创建对象，必须要先定义类，所谓的类可以理解为对象的模型，程序中可以根据类创建指定类型的对象，举例来说：可以通过Person类来创建人的对象，通过Dog类创建狗的对象，通过Car类来创建汽车的对象，不同的类可以用来创建不同的对象。</p>
+<ul>
+<li>
+<p>定义类：</p>
+<ul>
+<li>
+<pre><code class="language-typescript">  class 类名 &#123;
+  	属性名: 类型;	//里面不使用
+  	
+  	constructor(参数: 类型)&#123;
+  		this.属性名 = 参数;
+  	&#125;
+  	
+  	方法名()&#123;
+  		....
+  	&#125;
+  
+  &#125;
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 示例：</span><br><span class="line"></span><br><span class="line">    - ```typescript</span><br><span class="line">        class Person&#123;</span><br><span class="line">            name: string;</span><br><span class="line">            age: number;</span><br><span class="line">        </span><br><span class="line">            constructor(name: string, age: number)&#123;</span><br><span class="line">                this.name = name;</span><br><span class="line">                this.age = age;</span><br><span class="line">            &#125;</span><br><span class="line">        </span><br><span class="line">            sayHello()&#123;</span><br><span class="line">                console.log(`大家好，我是$&#123;this.name&#125;`);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>使用类：</p>
+<ul>
+<li>
+<pre><code class="language-typescript">  const p = new Person('孙悟空', 18);
+  p.sayHello();
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 2、面向对象的特点</span><br><span class="line"></span><br><span class="line">- 封装</span><br><span class="line"></span><br><span class="line">    - 对象实质上就是属性和方法的容器，它的主要作用就是存储属性和方法，这就是所谓的封装</span><br><span class="line"></span><br><span class="line">    - 默认情况下，对象的属性是可以任意的修改的，为了确保数据的安全性，在TS中可以对属性的权限进行设置</span><br><span class="line"></span><br><span class="line">    - 只读属性（**readonly**）：</span><br><span class="line"></span><br><span class="line">        - 如果在声明属性时添加一个readonly，则属性便成了只读属性无法修改</span><br><span class="line"></span><br><span class="line">    - TS中属性具有三种修饰符：</span><br><span class="line"></span><br><span class="line">        - public（默认值），可以在类、子类和对象中修改</span><br><span class="line">        - protected ，可以在类、子类中修改</span><br><span class="line">        - private ，可以在类中修改</span><br><span class="line"></span><br><span class="line">    - 示例：</span><br><span class="line"></span><br><span class="line">        - public</span><br><span class="line"></span><br><span class="line">            - ```typescript</span><br><span class="line">                class Person&#123;</span><br><span class="line">                    public name: string; // 写或什么都不写都是public</span><br><span class="line">                    public age: number;</span><br><span class="line">                </span><br><span class="line">                    constructor(name: string, age: number)&#123;</span><br><span class="line">                        this.name = name; // 可以在类中修改</span><br><span class="line">                        this.age = age;</span><br><span class="line">                    &#125;</span><br><span class="line">                </span><br><span class="line">                    sayHello()&#123;</span><br><span class="line">                        console.log(`大家好，我是$&#123;this.name&#125;`);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                class Employee extends Person&#123;</span><br><span class="line">                    constructor(name: string, age: number)&#123;</span><br><span class="line">                        super(name, age);</span><br><span class="line">                        this.name = name; //子类中可以修改</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                const p = new Person(&#x27;孙悟空&#x27;, 18);</span><br><span class="line">                p.name = &#x27;猪八戒&#x27;;// 可以通过对象修改</span><br></pre></td></tr></table></figure>
+
+  - protected
+
+      - ```typescript
+          class Person&#123;
+              protected name: string;
+              protected age: number;
+          
+              constructor(name: string, age: number)&#123;
+                  this.name = name; // 可以修改
+                  this.age = age;
+              &#125;
+          
+              sayHello()&#123;
+                  console.log(`大家好，我是$&#123;this.name&#125;`);
+              &#125;
+          &#125;
+          
+          class Employee extends Person&#123;
+          
+              constructor(name: string, age: number)&#123;
+                  super(name, age);
+                  this.name = name; //子类中可以修改
+              &#125;
+          &#125;
+          
+          const p = new Person('孙悟空', 18);
+          p.name = '猪八戒';// 不能修改
+          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- private</span><br><span class="line"></span><br><span class="line">    - ```typescript</span><br><span class="line">        class Person&#123;</span><br><span class="line">            private name: string;</span><br><span class="line">            private age: number;</span><br><span class="line">        </span><br><span class="line">            constructor(name: string, age: number)&#123;</span><br><span class="line">                this.name = name; // 可以修改</span><br><span class="line">                this.age = age;</span><br><span class="line">            &#125;</span><br><span class="line">        </span><br><span class="line">            sayHello()&#123;</span><br><span class="line">                console.log(`大家好，我是$&#123;this.name&#125;`);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        class Employee extends Person&#123;</span><br><span class="line">        </span><br><span class="line">            constructor(name: string, age: number)&#123;</span><br><span class="line">                super(name, age);</span><br><span class="line">                this.name = name; //子类中不能修改</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        const p = new Person(&#x27;孙悟空&#x27;, 18);</span><br><span class="line">        p.name = &#x27;猪八戒&#x27;;// 不能修改</span><br></pre></td></tr></table></figure>
+
+</code></pre>
+</li>
+<li>
+<p><strong>属性存取器</strong></p>
+<ul>
+<li>
+<p>对于一些不希望被任意修改的属性，可以将其设置为private</p>
+</li>
+<li>
+<p>直接将其设置为private将导致无法再通过对象修改其中的属性</p>
+</li>
+<li>
+<p>我们可以在类中定义一组读取、设置属性的方法，这种对属性读取或设置的属性被称为属性的存取器</p>
+</li>
+<li>
+<p>读取属性的方法叫做setter方法，设置属性的方法叫做getter方法</p>
+</li>
+<li>
+<p>示例：</p>
+<ul>
+<li>
+<pre><code class="language-typescript">  class Person&#123;
+      private _name: string;
+  
+      constructor(name: string)&#123;
+          this._name = name;
+      &#125;
+  
+      get MyName()&#123;	//MyName是被调用时获取属性的方法名字
+          return this._name;
+      &#125;
+  
+      set MyName(name: string)&#123;	//同上
+          this._name = name;
+      &#125;
+  
+  &#125;
+  
+  const p1 = new Person('孙悟空');
+  console.log(p1.MyName); // 通过getter读取name属性
+  p1.MyName = '猪八戒'; // 通过setter修改name属性
+  console.log(p1.MyName);
+  
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 静态属性</span><br><span class="line"></span><br><span class="line">    - 静态属性（方法），也称为类属性。使用静态属性无需创建实例，通过类即可直接使用</span><br><span class="line"></span><br><span class="line">    - 静态属性（方法）使用static开头</span><br><span class="line"></span><br><span class="line">    - 示例：</span><br><span class="line"></span><br><span class="line">        - ```typescript</span><br><span class="line">            class Tools&#123;</span><br><span class="line">                static PI = 3.1415926;</span><br><span class="line">                </span><br><span class="line">                static sum(num1: number, num2: number)&#123;</span><br><span class="line">                    return num1 + num2</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            console.log(Tools.PI);</span><br><span class="line">            console.log(Tools.sum(123, 456));</span><br></pre></td></tr></table></figure>
+
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>实例属性：如下中的name即为实例属性</p>
+  <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="built_in">string</span> = <span class="string">&#x27;kittates&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>this</p>
+<ul>
+<li>在类中，使用this表示当前对象</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>继承</p>
+<ul>
+<li>
+<p>继承时面向对象中的又一个特性</p>
+</li>
+<li>
+<p>通过继承可以将其他类中的属性和方法引入到当前类中</p>
+<ul>
+<li>
+<p>示例：</p>
+<ul>
+<li>
+<pre><code class="language-typescript">  class Animal&#123;
+      name: string;
+      age: number;
+  
+      constructor(name: string, age: number)&#123;
+          this.name = name;
+          this.age = age;
+      &#125;
+  &#125;
+  
+  class Dog extends Animal&#123;
+  
+      bark()&#123;
+          console.log(`$&#123;this.name&#125;在汪汪叫！`);
+      &#125;
+  &#125;
+  
+  const dog = new Dog('旺财', 4);
+  dog.bark();
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 通过继承可以在不修改类的情况下完成对类的扩展</span><br><span class="line"></span><br><span class="line">- 重写</span><br><span class="line"></span><br><span class="line">    - 发生继承时，如果子类中的方法会替换掉父类中的同名方法，这就称为方法的**重写**</span><br><span class="line"></span><br><span class="line">    - 示例：</span><br><span class="line"></span><br><span class="line">        - ```typescript</span><br><span class="line">            class Animal&#123;</span><br><span class="line">                name: string;</span><br><span class="line">                age: number;</span><br><span class="line">            </span><br><span class="line">                constructor(name: string, age: number)&#123;</span><br><span class="line">                    this.name = name;</span><br><span class="line">                    this.age = age;</span><br><span class="line">                &#125;</span><br><span class="line">            </span><br><span class="line">                run()&#123;</span><br><span class="line">                    console.log(`父类中的run方法！`);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            class Dog extends Animal&#123;</span><br><span class="line">            </span><br><span class="line">                bark()&#123;</span><br><span class="line">                    console.log(`$&#123;this.name&#125;在汪汪叫！`);</span><br><span class="line">                &#125;</span><br><span class="line">            </span><br><span class="line">                run()&#123;</span><br><span class="line">                    console.log(`子类中的run方法，会重写父类中的run方法！`);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            const dog = new Dog(&#x27;旺财&#x27;, 4);</span><br><span class="line">            dog.bark();</span><br></pre></td></tr></table></figure>
+
+</code></pre>
+</li>
+<li>
+<p>在子类中可以使用super来完成对父类的引用</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>抽象类（abstract class）</p>
+<ul>
+<li>
+<p>抽象类是专门用来被其他类所继承的类，它只能被其他类所继承不能用来创建实例。只定义其结构，而其具体的实现有相应的继承它的子类来实现。</p>
+</li>
+<li>
+<pre><code class="language-typescript">  abstract class Animal&#123;
+      abstract run(): void;
+      bark()&#123;
+          console.log('动物在叫~');
+      &#125;
+  &#125;
+  
+  class Dog extends Animals&#123;
+      run()&#123;
+          console.log('狗在跑~');
+      &#125;
+  &#125;
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">        - 使用abstract开头的方法叫做抽象方法，抽象方法没有方法体只能定义在抽象类中，继承抽象类时抽象方法必须要实现</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">## 3、接口（Interface）</span><br><span class="line"></span><br><span class="line">只有TS中由，JS中没有接口这个东西</span><br><span class="line"></span><br><span class="line">接口的作用类似于抽象类，不同点在于接口中的所有方法和属性都是没有实值的，换句话说接口中的所有方法都是抽象方法。**接口主要负责定义一个类的结构**，接口可以去限制一个对象的接口，对象只有包含接口中定义的所有属性和方法时才能匹配接口。同时，可以让一个类去实现接口，实现接口时类中要保护接口中的所有属性。**可以当成一个类型去使用**</span><br><span class="line"></span><br><span class="line">- 示例（检查对象类型）：</span><br><span class="line"></span><br><span class="line">    - ```typescript</span><br><span class="line">        interface Person&#123;</span><br><span class="line">            name: string;</span><br><span class="line">            sayHello():void;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        function fn(per: Person)&#123;</span><br><span class="line">            per.sayHello();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        fn(&#123;name:&#x27;孙悟空&#x27;, sayHello() &#123;console.log(`Hello, 我是 $&#123;this.name&#125;`)&#125;&#125;);</span><br><span class="line">        </span><br></pre></td></tr></table></figure>
+
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>示例（实现）</p>
+<p><strong>下面的这种接口实现：实际上就是定义了一种标准，每个实现的类都需要具有这些统一的标准，而不能各自去实现</strong></p>
+<ul>
+<li>
+<pre><code class="language-typescript">  interface Person&#123;
+      name: string;
+      sayHello():void;
+  &#125;
+  
+  class Student implements Person&#123;	//实现接口内部的具体实现
+      constructor(public name: string) &#123;
+          this.name = name;
+      &#125;
+  
+      sayHello() &#123;
+          console.log('大家好，我是'+this.name);
+      &#125;
+  &#125;
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 4、泛型（Generic）</span><br><span class="line"></span><br><span class="line">[参考泛型文档](https://ts.xcatliu.com/advanced/generics.html)</span><br><span class="line"></span><br><span class="line">定义一个函数或类时，有些情况下无法确定其中要使用的具体类型（返回值、参数、属性的类型不能确定），此时泛型便能够发挥作用。</span><br><span class="line"></span><br><span class="line">泛型可以实现用户将数据传给类</span><br><span class="line"></span><br><span class="line">- 举个例子：</span><br><span class="line"></span><br><span class="line">    - ```typescript</span><br><span class="line">        function test(arg: any): any&#123;</span><br><span class="line">        	return arg;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+</code></pre>
+</li>
+<li>
+<p>上例中，test函数有一个参数类型不确定，但是能确定的是其返回值的类型和参数的类型是相同的，由于类型不确定所以参数和返回值均使用了any，但是很明显这样做是不合适的，首先使用any会关闭TS的类型检查，其次这样设置也不能体现出参数和返回值是相同的类型</p>
+</li>
+<li>
+<p>使用泛型：</p>
+</li>
+<li>
+<pre><code class="language-typescript">  function test&lt;T&gt;(arg: T): T&#123;
+  	return arg;
+  &#125;
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 这里的```&lt;T&gt;```就是泛型，T是我们给这个类型起的名字（不一定非叫T），设置泛型后即可在函数中使用T来表示该类型。所以泛型其实很好理解，**就表示某个类型。**</span><br><span class="line"></span><br><span class="line">- 那么如何使用上边的函数呢？</span><br><span class="line"></span><br><span class="line">    - 方式一（直接使用）：</span><br><span class="line"></span><br><span class="line">        - ```typescript</span><br><span class="line">            test(10)</span><br></pre></td></tr></table></figure>
+
+      - 使用时可以直接传递参数使用，**类型会由TS自动推断出来**，但有时编译器无法自动推断时还需要使用下面的方式
+
+  - 方式二（指定类型）：
+
+      - ```typescript
+          test&lt;number&gt;(10)
+          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">        - 也可以在函数后手动指定泛型</span><br><span class="line"></span><br><span class="line">- 可以同时指定多个泛型，泛型间使用逗号隔开：</span><br><span class="line"></span><br><span class="line">    - ```typescript</span><br><span class="line">        function test&lt;T, K&gt;(a: T, b: K): K&#123;</span><br><span class="line">            return b;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        test&lt;number, string&gt;(10, &quot;hello&quot;);</span><br></pre></td></tr></table></figure>
+
+  - 使用泛型时，完全可以将泛型当成是一个普通的类去使用
+
+</code></pre>
+</li>
+<li>
+<p><strong>类中同样可以使用泛型</strong>：</p>
+<ul>
+<li>
+<pre><code class="language-typescript">  class MyClass&lt;T&gt;&#123;
+      prop: T;
+  
+      constructor(prop: T)&#123;
+          this.prop = prop;
+      &#125;
+  &#125;
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 除此之外，也可以对泛型的范围进行约束</span><br><span class="line"></span><br><span class="line">    接口可以进行限制，，进而可以应用到泛型中</span><br><span class="line"></span><br><span class="line">    - ```typescript</span><br><span class="line">        interface MyInter&#123;</span><br><span class="line">            length: number;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        function test&lt;T extends MyInter&gt;(arg: T): number&#123;</span><br><span class="line">            return arg.length;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+</code></pre>
+</li>
+<li>
+<p>使用T extends MyInter表示泛型T必须是MyInter的子类，不一定非要使用接口类和抽象类同样适用。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1>项目：贪吃蛇</h1>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/2024/05/20/2024-5-20/image-20240305184543981.png" alt="image-20240305184543981"></p>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+    <section id="share">
+      <div class="header"><span>分享文章</span></div>
+      <div class="body">
+        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="https://kittates.github.io/2024/05/20/2024-5-20/" /></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot)"><img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=https://kittates.github.io/2024/05/20/2024-5-20/&title=Typescript - kittates's blog&summary=Reference
+第一章 快速入门
+¶0、TypeScript简介
+
+TypeScript是JavaScript的超集。
+它对JS进行了扩展，向JS中引入了类型的概念，并添加了许多新的特性。
+TS代码需要通过编译器编译为JS，然后再..."><img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item email" href="mailto:?subject=Typescript - kittates's blog&amp;body=https://kittates.github.io/2024/05/20/2024-5-20/"><img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        
+        <div class="qrcode" id="qrcode-wechat" style="opacity:0;height:0">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=https://kittates.github.io/2024/05/20/2024-5-20/"/>
+        </div>
+        
+      </div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2024/05/03/2024-5-3/">风起了</a></div></section></div>
+
+<div class="related-wrap" id="related-posts"></div>
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="kittates/commits" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></p>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">第一章 快速入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0%E3%80%81TypeScript%E7%AE%80%E4%BB%8B"><span class="toc-text">0、TypeScript简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81TypeScript-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-text">1、TypeScript 开发环境搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="toc-text">2、基本类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81TS%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9"><span class="toc-text">3、TS编译选项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81webpack"><span class="toc-text">4、webpack</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">第二章：面向对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E7%B1%BB%EF%BC%88class%EF%BC%89"><span class="toc-text">1、类（class）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">项目：贪吃蛇</span></a></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js`,
+    marked: `https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.28.1" async></script>
+
+<!-- optional -->
+
+  <script>
+  function loadBeaudar() {
+    const els = document.querySelectorAll("#comments #beaudar");
+    if (els.length === 0) return;
+    els.forEach((el, i) => {
+      try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.error(error);
+      }
+      var script = document.createElement('script');
+      script.src = 'https://beaudar.lipk.org/client.js';
+      script.async = true;
+      for (let key of Object.keys(el.attributes)) {
+        let attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+      loadBeaudar();
+  });
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.bootcdn.net/ajax/libs/flying-pages/2.1.2/flying-pages.min.js"></script><script defer src="https://cdn.bootcdn.net/ajax/libs/vanilla-lazyload/17.8.4/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css`,
+    js: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(e){e.imageLazyLoadSetting.processImages=t;var n=e.imageLazyLoadSetting.isSPA,i=e.imageLazyLoadSetting.preloadRatio||1,r=o();function o(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){n&&(r=o());for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(e.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];e=function(){r=r.filter(function(t){return o!==t})},(t=o).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,t.removeAttribute("data-original"),e&&e()},t.src!==i&&(n.src=i))}()}function a(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",a),e.addEventListener("resize",a),e.addEventListener("orientationchange",a)}(this);</script></body></html>
