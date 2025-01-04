@@ -6,7 +6,7 @@
   <link href="https://kittates.github.io/atom.xml" rel="self"/>
   
   <link href="https://kittates.github.io/"/>
-  <updated>2024-12-20T12:30:00.545Z</updated>
+  <updated>2025-01-04T04:07:41.328Z</updated>
   <id>https://kittates.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>机器码的小端方式</title>
+    <link href="https://kittates.github.io/2025/01/04/2025-1-4/"/>
+    <id>https://kittates.github.io/2025/01/04/2025-1-4/</id>
+    <published>2025-01-04T03:23:54.000Z</published>
+    <updated>2025-01-04T04:07:41.328Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>​今天在看8086汇编时弹出了一个疑问：在以小端方式存储的cpu上，一条指令(操作码和地址码)的机器码也是直接以小端方式存放的吗？例如如下汇编代码：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line">code segment</span><br><span class="line">        dw 0123h,0456h,0789h,0abch,0defh,0fedh,0cbah,0987h</span><br><span class="line">        mov bx,0</span><br><span class="line">        mov ax,0</span><br><span class="line">        mov cx,8</span><br><span class="line">s:      add ax,cs:[bx]</span><br><span class="line">        add bx,2</span><br><span class="line">        loop s</span><br><span class="line"></span><br><span class="line">        mov ax,4c00h</span><br><span class="line">        int 21h</span><br><span class="line">code ends</span><br><span class="line">end</span><br></pre></td></tr></table></figure><p>编译后的机器码如下：</p><p><img src="/2025/01/04/2025-1-4/image-20250104113924036.png" alt="image-20250104113924036"></p><p>对于<code>mov cx,0008</code>，对应的机器码为B90800，可以发现0800为mov指令中的立即数，并且是以小端方式存储的，而前面的B9应该是操作码对应的机器码，如果指令也是小端方式存储的，那么指令格式应该是0800B9，但这与实际的机器码不一样。</p><p>再在内存中查看该指令的机器码：</p><p><img src="/2025/01/04/2025-1-4/image-20250104114417488.png" alt="image-20250104114417488"></p><p>发现B9是存储在低地址中的。通过查看其它指令也是如此。</p><p>所以可知8086 指令存储规则：</p><ol><li>指令的操作码部分存储在低地址。</li><li>操作数的字节按照小端方式存储。</li></ol><p>大端、小端方式是针对数据部分的，具体指数据的高位字节和低位字节在内存中的排列方式，不针对操作码。</p><p><strong>参考：</strong></p><blockquote><p>1、<a href="https://blog.csdn.net/zyhse/article/details/133999018">汇编与机器指令转换</a></p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="汇编" scheme="https://kittates.github.io/categories/%E6%B1%87%E7%BC%96/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>gogogo</title>
