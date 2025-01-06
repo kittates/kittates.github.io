@@ -1,0 +1,35 @@
+---
+title: photo
+menu_id: photo
+date: 2024-05-05 23:12:12
+type: "photo"
+layout: "photo"
+comments: true
+---
+### 
+{% timeline %}
+<!-- node 2024年5月6号 -->
+{% gallery %}
+![@kittates](/photo/myPicture/2024-05-06/step1.png)
+![@kittates](/photo/myPicture/2024-05-06/step2.png)
+![@kittates](/photo/myPicture/2024-05-06/step3.png)
+![@kittates](/photo/myPicture/2024-05-06/step4.png)
+![@kittates](/photo/myPicture/2024-05-06/step5.png)
+{% endgallery %}
+{% endtimeline %}
+
+{% timeline %}
+<!-- node 2024年5月5号 -->
+测试图片
+{% gallery %}
+![@kittates](/photo/myPicture/2024-05-05/94433e26-1342-4f7c-ab5f-bc15594eb561.png)
+![@kittates](/photo/myPicture/2024-05-05/adfq.jpg)
+![@kittates](/photo/myPicture/2024-05-05/asdasd.jpg)
+![@kittates](/photo/myPicture/2024-05-05/IMG_20240403_215113.png)
+![@kittates](/photo/myPicture/2024-05-05/brian_and_stewie_by_oscartomas_d4jmstg_by_marcusvanngriffin_d71zxxf-fullview.jpg)
+![@kittates](/photo/myPicture/2024-05-05/Brian_Griffin.png)
+![@kittates](/photo/myPicture/2024-05-05/Meg_Griffin.png)
+![@kittates](/photo/myPicture/2024-05-05/Snipaste_2024-02-20_16-26-36.png)
+![@kittates](/photo/myPicture/2024-05-05/Stewie_Griffin.png)
+{% endgallery %}
+{% endtimeline %}
