@@ -64,7 +64,11 @@
       document.documentElement.setAttribute('color-mode', colorMode)
     }
   </script>
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="kittates's blog" type="application/atom+xml">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="kittates's blog" type="application/atom+xml">
 </head>
 
 
@@ -178,20 +182,20 @@
           
       </div>
       <div class="markdown-body">
-        <p>​	今天总体感觉不太行，效率有点低。</p>
-<p>​	今天上午第一节是计组，还是和往常一样洗漱吃面包🍞，50多出的门，提前去记几个单词。</p>
-<p>​	到教室后发现已经有好几个人在那了，比我来的还早，服了。</p>
-<p>​	计组前一天晚上预学了一会儿，所以学的还算很简单。</p>
-<p>​	第二节没有课，但是得利用这段时间去测码。人不多，很快就做完了。</p>
-<p>​	做完核酸在二楼吃了自选菜，花了我18块多😭。</p>
-<p>​	中午回宿舍，本想下午第一节的计组实验课不去了，想run。但是上午上实验的那两个班点名了，也只好不得不去了。困得一批。</p>
-<p>​	吕国华的软件工程也是一如既往的摆。<strong>还是摆点好啊！！！</strong></p>
-<p>​	晚上吃的肉酱面，就是豆干切成的小块，哪里有什么肉酱，就TM是一坨💩.</p>
-<p>​	晚上6.10多去上的自习。你妈找个空教室真TM难，不是有在上课的，就是大一的崽子们在上晚自习的，还他们上晚自习的位置不固定。最后爬到平阶五楼才找到了个位置。</p>
-<p>​	晚上学习的这段时间效率不太高。对软件项目管理就是😵 😪的状态。后面的人工智能和软件工程考试可怎么办啊😩.</p>
-<p>​	<strong>不会真的要寄了吧，鼠鼠不想寄啊</strong>。</p>
-<p>​	想玩玩Steam新出的Chicken Feet，不好，我怎么露出了鸡脚，我可是ikun啊。</p>
-<p>​	奈何游侠没有资源，等等吧。</p>
+        <p>​    今天总体感觉不太行，效率有点低。</p>
+<p>​    今天上午第一节是计组，还是和往常一样洗漱吃面包:bread:，50多出的门，提前去记几个单词。</p>
+<p>​    到教室后发现已经有好几个人在那了，比我来的还早，服了。</p>
+<p>​    计组前一天晚上预学了一会儿，所以学的还算很简单。</p>
+<p>​    第二节没有课，但是得利用这段时间去测码。人不多，很快就做完了。</p>
+<p>​    做完核酸在二楼吃了自选菜，花了我18块多:sob:。</p>
+<p>​    中午回宿舍，本想下午第一节的计组实验课不去了，想run。但是上午上实验的那两个班点名了，也只好不得不去了。困得一批。</p>
+<p>​    吕国华的软件工程也是一如既往的摆。<strong>还是摆点好啊！！！</strong></p>
+<p>​    晚上吃的肉酱面，就是豆干切成的小块，哪里有什么肉酱，就TM是一坨:shit:.</p>
+<p>​    晚上6.10多去上的自习。你妈找个空教室真TM难，不是有在上课的，就是大一的崽子们在上晚自习的，还他们上晚自习的位置不固定。最后爬到平阶五楼才找到了个位置。</p>
+<p>​    晚上学习的这段时间效率不太高。对软件项目管理就是:dizzy_face: :sleepy:的状态。后面的人工智能和软件工程考试可怎么办啊:weary:.</p>
+<p>​    <strong>不会真的要寄了吧，鼠鼠不想寄啊</strong>。</p>
+<p>​    想玩玩Steam新出的Chicken Feet，不好，我怎么露出了鸡脚，我可是ikun啊。</p>
+<p>​    奈何游侠没有资源，等等吧。</p>
 
       </div>
       
@@ -571,7 +575,24 @@
 
       </div>
     </div>
-  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
         <style>
             [bg-lazy] {
                 background-image: none !important;

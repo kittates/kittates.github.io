@@ -64,7 +64,11 @@
       document.documentElement.setAttribute('color-mode', colorMode)
     }
   </script>
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="kittates's blog" type="application/atom+xml">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="kittates's blog" type="application/atom+xml">
 </head>
 
 
@@ -179,7 +183,7 @@
       </div>
       <div class="markdown-body">
         <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码错误，请重新输入." data-whm="文章不能被校验, 不过您还是能看解密后的内容.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="bfc093c59bee6f0c81eddf6ff74ecdf14122a0d900e78804bc76e7b18e547bcb">10d79030e8222445804370796b90fca1331cc27949fc41078acd1c35d52ceccb01e757594830f72e2cd32c0bb5009397f60225258c1f58df335a501bf4d7b185f7fb526045343f007808603aa681e50b716401abb288dd8e606af1f8c3f6c047495118c29855caa56862b27cc9aa5a232219ea9469f883662fd58cb948f6f2f033fdb9f6ae1f54c05b58dbc69390bbea0b330c2d91e82c709ac7c2c482857745e3cfd28b7e8210ab83f97ea66f84be3f48ced8773a475b2312483cc33965140a2b74d7bc31cba05e155c4007d0ae8f5026404d0df17ccdc494dc397d420ac36d96eaaf8e8ee475386898960d840d388582fccd046682f43dce4dd9162a2dd5f4</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="df4903dd9a9ee93116427e2d07d9010388d7213a39f5138958b19addc978a8ad">10d79030e8222445804370796b90fca148aa6855d970246f117c47b7ad826a660ab2d55160208b7a5a4ca5866be1e031cc8fa9278c89ab5f334eddfcccf63526d788bd8eae8d35145345ce0eb44f9e4b5e7aa899446487be74bba89539b4d8478477f9fc6d5738dde36c9f8b444667ec8a8b9cb2c657eb4e9267de45b9e21652b29e0260e97cfddb133a43456ceb234716d7a9e0c47d3356a4f391b741dee5469f9f23b4b375eceaea2ff70a8badcab6aed33407d5237bc0678c06fb264735073225bc3c65cfda5140dd57d16f0ee037460371b90a666f0550cc0baeec7c130f5f87fb3820d8ff585385270a5026a66c96e0f4c1881dc97acb5a6f76beebc48e38e4f674df31f690d3c8ac2e83720a2b</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
@@ -568,7 +572,24 @@
 
       </div>
     </div>
-  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
         <style>
             [bg-lazy] {
                 background-image: none !important;
