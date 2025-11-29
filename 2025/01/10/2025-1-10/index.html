@@ -182,56 +182,43 @@
           
       </div>
       <div class="markdown-body">
-        <h1>第二章 信息的表示和处理</h1>
-<h2 id="2-1-3-对强制类型转换访问和打印不同程序对象的字节表示的代码的理解"><a class="header-anchor" href="#2-1-3-对强制类型转换访问和打印不同程序对象的字节表示的代码的理解">¶</a>2.1.3 对强制类型转换访问和打印不同程序对象的字节表示的代码的理解</h2>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">char</span> *byte_pointer;</span><br><span class="line"><span class="type">void</span> <span class="title function_">show_bytes</span><span class="params">(byte_pointer start, <span class="type">size_t</span> len)</span> &#123;</span><br><span class="line">    <span class="type">size_t</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;len;i++) </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%.2x&quot;</span>,start[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">show_int</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">    show_bytes((byte_pointer) &amp;x,<span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">show_float</span><span class="params">(<span class="type">float</span> x)</span> &#123;</span><br><span class="line">    show_bytes((byte_pointer) &amp;x,<span class="keyword">sizeof</span>(<span class="type">float</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">show_pointer</span><span class="params">(<span class="type">void</span> *x)</span> &#123;</span><br><span class="line">    show_bytes((byte_pointer) &amp;x,<span class="keyword">sizeof</span>(<span class="type">void</span> *));</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">test_show_bytes</span><span class="params">(<span class="type">int</span> val)</span> &#123;</span><br><span class="line">    <span class="type">int</span> ival = val;</span><br><span class="line">    <span class="type">float</span> fval = (<span class="type">float</span>) ival;</span><br><span class="line">    <span class="type">int</span> *pval = &amp;ival;</span><br><span class="line">    show_int(ival);</span><br><span class="line">    show_float(fval);</span><br><span class="line">    show_pointer(pval);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    test_show_bytes(<span class="number">12345</span>);		<span class="comment">//12345.0</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="第二章-信息的表示和处理"><a href="#第二章-信息的表示和处理" class="headerlink" title="第二章 信息的表示和处理"></a>第二章 信息的表示和处理</h1><h2 id="2-1-3-对强制类型转换访问和打印不同程序对象的字节表示的代码的理解"><a href="#2-1-3-对强制类型转换访问和打印不同程序对象的字节表示的代码的理解" class="headerlink" title="2.1.3 对强制类型转换访问和打印不同程序对象的字节表示的代码的理解"></a>2.1.3 对强制类型转换访问和打印不同程序对象的字节表示的代码的理解</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">char</span> *byte_pointer;</span><br><span class="line"><span class="type">void</span> <span class="title function_">show_bytes</span><span class="params">(byte_pointer start, <span class="type">size_t</span> len)</span> &#123;</span><br><span class="line">    <span class="type">size_t</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;len;i++) </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%.2x&quot;</span>,start[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">show_int</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">    show_bytes((byte_pointer) &amp;x,<span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">show_float</span><span class="params">(<span class="type">float</span> x)</span> &#123;</span><br><span class="line">    show_bytes((byte_pointer) &amp;x,<span class="keyword">sizeof</span>(<span class="type">float</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">show_pointer</span><span class="params">(<span class="type">void</span> *x)</span> &#123;</span><br><span class="line">    show_bytes((byte_pointer) &amp;x,<span class="keyword">sizeof</span>(<span class="type">void</span> *));</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">test_show_bytes</span><span class="params">(<span class="type">int</span> val)</span> &#123;</span><br><span class="line">    <span class="type">int</span> ival = val;</span><br><span class="line">    <span class="type">float</span> fval = (<span class="type">float</span>) ival;</span><br><span class="line">    <span class="type">int</span> *pval = &amp;ival;</span><br><span class="line">    show_int(ival);</span><br><span class="line">    show_float(fval);</span><br><span class="line">    show_pointer(pval);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    test_show_bytes(<span class="number">12345</span>);		<span class="comment">//12345.0</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>
-<p>对于show_int(12345)，show_int()函数接受的参数12345为int型，4B大小，在该函数内部调用show_bytes()，第一个参数会传入12345所在的存储地址(&amp;x)，并将该地址参数强制类型转换为byte_pointer型，这表明当执行show_bytes()内部的printf()时，不再以int型作为单位访问，而是以unsigned char为单位访问x所在存储单元中的数据，由于12345是以int型传入show_int()中的，所以会for循环四次访问x所在存储单元中的数据。也就是说，存储12345的x地址传入show_bytes()后仍旧是原地址，只不过在show_bytes()中访问时只能一个字节一个字节的进行访问，因为unsigned char类型大小为1B</p>
+<li><p>对于show_int(12345)，show_int()函数接受的参数12345为int型，4B大小，在该函数内部调用show_bytes()，第一个参数会传入12345所在的存储地址(&amp;x)，并将该地址参数强制类型转换为byte_pointer型，这表明当执行show_bytes()内部的printf()时，不再以int型作为单位访问，而是以unsigned char为单位访问x所在存储单元中的数据，由于12345是以int型传入show_int()中的，所以会for循环四次访问x所在存储单元中的数据。也就是说，存储12345的x地址传入show_bytes()后仍旧是原地址，只不过在show_bytes()中访问时只能一个字节一个字节的进行访问，因为unsigned char类型大小为1B</p>
 </li>
-<li>
-<p>对于show_pointer(pval)，show_pointer中传入的是12345所在存储单元的地址pval，在其内部传入show_bytes()中的第一个参数为指针的地址，即pval变量自身的地址，而不是pval所指向的地址，所以show_bytes()中会按unsigned char类型输出pval变量所存储的数据，循环次数为该指针的大小</p>
+<li><p>对于show_pointer(pval)，show_pointer中传入的是12345所在存储单元的地址pval，在其内部传入show_bytes()中的第一个参数为指针的地址，即pval变量自身的地址，而不是pval所指向的地址，所以show_bytes()中会按unsigned char类型输出pval变量所存储的数据，循环次数为该指针的大小</p>
 </li>
 </ul>
-<h2 id="2-1-7-练习题2-11-两数互换问题"><a class="header-anchor" href="#2-1-7-练习题2-11-两数互换问题">¶</a>2.1.7 练习题2.11 两数互换问题</h2>
-<p>原文前面讨论了利用异或交换两数的方法，但是对于下面的函数，运行结果有bug</p>
+<h2 id="2-1-7-练习题2-11-两数互换问题"><a href="#2-1-7-练习题2-11-两数互换问题" class="headerlink" title="2.1.7 练习题2.11 两数互换问题"></a>2.1.7 练习题2.11 两数互换问题</h2><p>原文前面讨论了利用异或交换两数的方法，但是对于下面的函数，运行结果有bug</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">funSwap</span><span class="params">(<span class="type">int</span> *x,<span class="type">int</span> *y)</span> &#123;</span><br><span class="line">    *y = *x^*y;</span><br><span class="line">    *x = *x^*y;</span><br><span class="line">    *y = *x^*y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">reverse_array</span><span class="params">(<span class="type">int</span> a[],<span class="type">int</span> cnt)</span> &#123;</span><br><span class="line">    <span class="type">int</span> first,last;</span><br><span class="line">    <span class="keyword">for</span>(first=<span class="number">0</span>,last=cnt<span class="number">-1</span>;first&lt;=last;first++,last--) </span><br><span class="line">        funSwap(&amp;a[first],&amp;a[last]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> a[<span class="number">5</span>] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">5</span>&#125;;</span><br><span class="line">    reverse_array(a,<span class="number">5</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++) </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,a[i]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>之所以数组的长度为2*k+1时，第k+1个数为0，原因在于在最后一次for循环时，first和last均指向a[k]，此时inplace_swap中的x和y指向了同一个地址, *x = *y。运行时第一个式子 *y = *x ^ *x = 0，第二个式子 *x = 0^0 = 0，第三个式子 *y = 0^0=0。为了避免first和last指向同一个数，可以去掉 ‘=’。</p>
-<h2 id="2-3-1-练习题2-27-判断溢出"><a class="header-anchor" href="#2-3-1-练习题2-27-判断溢出">¶</a>2.3.1 练习题2.27 判断溢出</h2>
-<p>依据原文上面中的推导过程，当$$s&lt;x$$或$$s&lt;y$$时发生溢出，所以</p>
+<p>之所以数组的长度为2<em>k+1时，第k+1个数为0，原因在于在最后一次for循环时，first和last均指向a[k]，此时inplace_swap中的x和y指向了同一个地址, </em>x = <em>y。运行时第一个式子 </em>y = <em>x ^ </em>x = 0，第二个式子 <em>x = 0^0 = 0，第三个式子 </em>y = 0^0=0。为了避免first和last指向同一个数，可以去掉 ‘=’。</p>
+<h2 id="2-3-1-练习题2-27-判断溢出"><a href="#2-3-1-练习题2-27-判断溢出" class="headerlink" title="2.3.1 练习题2.27 判断溢出"></a>2.3.1 练习题2.27 判断溢出</h2><p>依据原文上面中的推导过程，当<script type="math/tex">s<x</script>或<script type="math/tex">s<y</script>时发生溢出，所以</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">uadd_ok</span><span class="params">(<span class="type">unsigned</span> x,<span class="type">unsigned</span> y)</span> &#123;</span><br><span class="line">    <span class="type">unsigned</span> s = x+y;</span><br><span class="line">    <span class="keyword">return</span> s&gt;=x;	<span class="comment">//不溢出返回1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="2-3-2-练习题2-31-我没笑"><a class="header-anchor" href="#2-3-2-练习题2-31-我没笑">¶</a>2.3.2 练习题2.31 我没笑~</h2>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* WARNING: This code is buggy */</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">tadd_ok</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span> &#123;</span><br><span class="line">    <span class="type">int</span> sum = x+y;</span><br><span class="line">    <span class="keyword">return</span> (sum-x==y) &amp;&amp; (sum-y==x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-3-2-练习题2-31-我没笑"><a href="#2-3-2-练习题2-31-我没笑" class="headerlink" title="2.3.2 练习题2.31 我没笑~"></a>2.3.2 练习题2.31 我没笑~</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* WARNING: This code is buggy */</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">tadd_ok</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span> &#123;</span><br><span class="line">    <span class="type">int</span> sum = x+y;</span><br><span class="line">    <span class="keyword">return</span> (sum-x==y) &amp;&amp; (sum-y==x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这题给人一种表面上的正确，但是实际是错误的。</p>
 <p>由于 <strong>有符号整数溢出的行为</strong> 自然表现为模运算，所以：</p>
 <ul>
-<li>
-<p>当x+y不溢出时，函数返回正确结果</p>
+<li><p>当x+y不溢出时，函数返回正确结果</p>
 </li>
-<li>
-<p>当x+y正溢出时，该数会截断为后32位，即sum = x+y-2<sup>32</sup>，所以</p>
-<p>sum - x = x + y - 2<sup>32</sup> - x = y - 2<sup>32</sup> = ( y - 2<sup>32</sup> ) % 2<sup>32</sup> = y</p>
-<p>sum - y = x + y - 2<sup>32</sup> - y = x - 2<sup>32</sup> = ( x - 2<sup>32</sup> ) % 2<sup>32</sup> = x</p>
-<p>所以( sum - x == y ) &amp;&amp; ( sum - y == x ) 恒成立</p>
+<li><p>当x+y正溢出时，该数会截断为后32位，即sum = x+y-2^32^，所以</p>
+<p>  sum - x = x + y - 2^32^ - x = y - 2^32^ = ( y - 2^32^ ) % 2^32^ = y</p>
+<p>  sum - y = x + y - 2^32^ - y = x - 2^32^ = ( x - 2^32^ ) % 2^32^ = x</p>
+<p>  所以( sum - x == y ) &amp;&amp; ( sum - y == x ) 恒成立</p>
 </li>
-<li>
-<p>当x+y负溢出时，sum = x+y+2<sup>32</sup>，所以</p>
-<p>sum - x = x + y + 2<sup>32</sup> - x = y + 2<sup>32</sup> = ( y + 2<sup>32</sup> ) % 2<sup>32</sup> = y</p>
-<p>sum -y = x + y + 2<sup>32</sup> - y = x + 2<sup>32</sup> = ( x + 2<sup>32</sup> ) % 2<sup>32</sup> = x</p>
-<p>也是恒成立的</p>
+<li><p>当x+y负溢出时，sum = x+y+2^32^，所以</p>
+<p>  sum - x = x + y + 2^32^ - x = y + 2^32^ = ( y + 2^32^ ) % 2^32^ = y</p>
+<p>  sum -y = x + y + 2^32^ - y = x + 2^32^ = ( x + 2^32^ ) % 2^32^ = x</p>
+<p>  也是恒成立的</p>
 </li>
 </ul>
 <p>所以上述代码无论是否溢出，都恒成立，所以有问题。</p>
-<h2 id="2-3-2-练习题2-32-tsub-ok溢出问题"><a class="header-anchor" href="#2-3-2-练习题2-32-tsub-ok溢出问题">¶</a>2.3.2 练习题2.32 tsub_ok溢出问题</h2>
-<p>有一个特殊情况需要特别讨论，即y = -2<sup>31</sup>时,因为-y=-2<sup>31</sup></p>
+<h2 id="2-3-2-练习题2-32-tsub-ok溢出问题"><a href="#2-3-2-练习题2-32-tsub-ok溢出问题" class="headerlink" title="2.3.2 练习题2.32 tsub_ok溢出问题"></a>2.3.2 练习题2.32 tsub_ok溢出问题</h2><p>有一个特殊情况需要特别讨论，即y = -2^31^时,因为-y=-2^31^</p>
 <ul>
-<li>
-<p>x&gt;0时，不妨设x = 1，则x - y真值为1+2<sup>31</sup>,真值发生了溢出，但是在tadd_ok()中，</p>
-<p>x&gt;0，y&lt;0，返回的是1即没有溢出。</p>
+<li><p>x&gt;0时，不妨设x = 1，则x - y真值为1+2^31^,真值发生了溢出，但是在tadd_ok()中，</p>
+<p>  x&gt;0，y&lt;0，返回的是1即没有溢出。</p>
 </li>
-<li>
-<p>x&lt;0时，不妨设x = -1，则x - y真值为-1+2<sup>31</sup>,真值没有溢出，但是在tadd_ok()中，</p>
-<p>x&lt;0，y&lt;0，x+y = [1111……1111] + [1000……0000] = [0111……1111] &gt;0，所以返回的是0即发生了溢出</p>
+<li><p>x&lt;0时，不妨设x = -1，则x - y真值为-1+2^31^,真值没有溢出，但是在tadd_ok()中，</p>
+<p>  x<0，y<0，x+y = [1111……1111] + [1000……0000]="[0111……1111]">0，所以返回的是0即发生了溢出</0，y<0，x+y></p>
 </li>
 </ul>
 <p>所以需要在tsub_ok()单独处理这种情况</p>
@@ -285,7 +272,7 @@
     <div class="title">目录</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">第二章 信息的表示和处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-3-%E5%AF%B9%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%AE%BF%E9%97%AE%E5%92%8C%E6%89%93%E5%8D%B0%E4%B8%8D%E5%90%8C%E7%A8%8B%E5%BA%8F%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AD%97%E8%8A%82%E8%A1%A8%E7%A4%BA%E7%9A%84%E4%BB%A3%E7%A0%81%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">2.1.3 对强制类型转换访问和打印不同程序对象的字节表示的代码的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-7-%E7%BB%83%E4%B9%A0%E9%A2%982-11-%E4%B8%A4%E6%95%B0%E4%BA%92%E6%8D%A2%E9%97%AE%E9%A2%98"><span class="toc-text">2.1.7 练习题2.11 两数互换问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-1-%E7%BB%83%E4%B9%A0%E9%A2%982-27-%E5%88%A4%E6%96%AD%E6%BA%A2%E5%87%BA"><span class="toc-text">2.3.1 练习题2.27 判断溢出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-2-%E7%BB%83%E4%B9%A0%E9%A2%982-31-%E6%88%91%E6%B2%A1%E7%AC%91"><span class="toc-text">2.3.2 练习题2.31 我没笑~</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-2-%E7%BB%83%E4%B9%A0%E9%A2%982-32-tsub-ok%E6%BA%A2%E5%87%BA%E9%97%AE%E9%A2%98"><span class="toc-text">2.3.2 练习题2.32 tsub_ok溢出问题</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E4%BF%A1%E6%81%AF%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E5%A4%84%E7%90%86"><span class="toc-text">第二章 信息的表示和处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-3-%E5%AF%B9%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%AE%BF%E9%97%AE%E5%92%8C%E6%89%93%E5%8D%B0%E4%B8%8D%E5%90%8C%E7%A8%8B%E5%BA%8F%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AD%97%E8%8A%82%E8%A1%A8%E7%A4%BA%E7%9A%84%E4%BB%A3%E7%A0%81%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">2.1.3 对强制类型转换访问和打印不同程序对象的字节表示的代码的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-7-%E7%BB%83%E4%B9%A0%E9%A2%982-11-%E4%B8%A4%E6%95%B0%E4%BA%92%E6%8D%A2%E9%97%AE%E9%A2%98"><span class="toc-text">2.1.7 练习题2.11 两数互换问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-1-%E7%BB%83%E4%B9%A0%E9%A2%982-27-%E5%88%A4%E6%96%AD%E6%BA%A2%E5%87%BA"><span class="toc-text">2.3.1 练习题2.27 判断溢出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-2-%E7%BB%83%E4%B9%A0%E9%A2%982-31-%E6%88%91%E6%B2%A1%E7%AC%91"><span class="toc-text">2.3.2 练习题2.31 我没笑~</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-2-%E7%BB%83%E4%B9%A0%E9%A2%982-32-tsub-ok%E6%BA%A2%E5%87%BA%E9%97%AE%E9%A2%98"><span class="toc-text">2.3.2 练习题2.32 tsub_ok溢出问题</span></a></li></ol></li></ol>
       
     </div>
   </div>
@@ -632,24 +619,7 @@
 
       </div>
     </div>
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-
+  
         <style>
             [bg-lazy] {
                 background-image: none !important;

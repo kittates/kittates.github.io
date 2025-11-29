@@ -68,7 +68,119 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="kittates's blog" type="application/atom+xml">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/atom.xml" title="kittates's blog" type="application/atom+xml">
 </head>
 
 
@@ -199,9 +311,9 @@
           
       </div>
       <div class="markdown-body">
-        <p>前面所有的games101的作业都是在WSL2中实现的，可以说如果出现了某个问题，只需要安装几个包就可以了。但是昨天早上当我开始做Assignment8的时候，完成了Rope构造函数，cmake … &amp;&amp; make后运行 ./ropesim，出现了Segmentation Fault(core dumped)，起初我是认为我的代码存在问题，但是经过我反复几次修改后发现问题并不是出现在代码上，而是在项目环境中。由于项目正常来说应该是在真正的linux环境下运行的，所以我又在虚拟机中的ubuntu24.04运行，结果还是不行，仍旧Segmentation Fault(core dumped)，安装卸载了许多包，最后还导致了桌面GUI给搞没了，我又不想重装系统（不想下载镜像文件）又花了老长一段时间来修复桌面。Google问题也没有发现成功在WSL上运行的解法，在昨天晚上还导致我的WSL文件损坏了，晚上又花了老长老长时间修复提取数据。不要紧，第二天早上（也就是今天早上）继续搞。</p>
+        <p>前面所有的games101的作业都是在WSL2中实现的，可以说如果出现了某个问题，只需要安装几个包就可以了。但是昨天早上当我开始做Assignment8的时候，完成了Rope构造函数，cmake .. &amp;&amp; make后运行 ./ropesim，出现了Segmentation Fault(core dumped)，起初我是认为我的代码存在问题，但是经过我反复几次修改后发现问题并不是出现在代码上，而是在项目环境中。由于项目正常来说应该是在真正的linux环境下运行的，所以我又在虚拟机中的ubuntu24.04运行，结果还是不行，仍旧Segmentation Fault(core dumped)，安装卸载了许多包，最后还导致了桌面GUI给搞没了，我又不想重装系统（不想下载镜像文件）又花了老长一段时间来修复桌面。Google问题也没有发现成功在WSL上运行的解法，在昨天晚上还导致我的WSL文件损坏了，晚上又花了老长老长时间修复提取数据。不要紧，第二天早上（也就是今天早上）继续搞。</p>
 <p>TMD，搞，搞到中午午饭都没吃，还是不行，最后无奈了，使用了games0101 p0给的VirtualBox和虚拟硬盘来做吧（没有办法的办法了），下好之后已经是下午的三点半左右了。TNND，搞完了之后进入terminal后没等输入命令操作几步就闪退到了登录界面。删了，最后还是选择搞WSL了。gdb调试发现是createKeyTables的问题，好，定位了问题的所在位置，接着看源码，问题在于glfw版本不同。</p>
-<p>前前后后花费了整整两天的时间来搞这个，明天就是周五了，BDPT和光子映射还没有实现，还要写周报，高质量实时渲染还没有进度，taichi也没有搞😩</p>
+<p>前前后后花费了整整两天的时间来搞这个，明天就是周五了，BDPT和光子映射还没有实现，还要写周报，高质量实时渲染还没有进度，taichi也没有搞:weary:</p>
 
       </div>
       
@@ -593,24 +705,7 @@
 
       </div>
     </div>
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-
+  
         <style>
             [bg-lazy] {
                 background-image: none !important;
