@@ -118,6 +118,19 @@
   <div class="post-list">
     <!-- 遍历渲染文章 -->
     
+      <div class="post-item" title="感慨">
+        <div class="time-m-d">2023-05-08</div>
+        <div class="title">
+          <a href="/2023/05/08/2023-5-8/">
+            
+              
+                <span>感慨</span>
+              
+            
+          </a>
+        </div>
+      </div>
+    
       <div class="post-item" title="测试0v7670摄像头">
         <div class="time-m-d">2023-04-28</div>
         <div class="title">
@@ -300,26 +313,12 @@
         </div>
       </div>
     
-      <div class="post-item" title="jQuery笔记">
-        <div class="time-m-d">2022-09-27</div>
-        <div class="title">
-          <a href="/2022/09/27/jQuery%E7%AC%94%E8%AE%B0/">
-            
-              
-                <span>jQuery笔记</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
   </div>
   <nav class="post-navigation">
     
       <a href="/page/2/"><i class="iconfont icon-angleleft"></i></a>
     
-    <span class="page-num">3 / 4</span>
-    
+    <span class="page-num">3 / 4</span>    
       <a href="/page/4/"><i class="iconfont icon-angleright"></i></a>
     
   </nav>
@@ -605,7 +604,24 @@
 
       </div>
     </div>
-  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
         <style>
             [bg-lazy] {
                 background-image: none !important;

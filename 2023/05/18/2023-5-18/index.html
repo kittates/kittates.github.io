@@ -182,7 +182,7 @@
           
       </div>
       <div class="markdown-body">
-        <p>​        计划OS和计算机网络在六月底结束，也就是说用一个月零几天的时间来快速的过一遍，这期间还会有考试和六级，但不得不紧张起来了，前面的数据结构和计组耗费了太多的时间了，尤其是做计组的那些大题，也不能这么太绝对，现在看了大题之后再去学习的话是有思路的。</p>
+        <p>​		计划OS和计算机网络在六月底结束，也就是说用一个月零几天的时间来快速的过一遍，这期间还会有考试和六级，但不得不紧张起来了，前面的数据结构和计组耗费了太多的时间了，尤其是做计组的那些大题，也不能这么太绝对，现在看了大题之后再去学习的话是有思路的。</p>
 
       </div>
       
@@ -562,7 +562,24 @@
 
       </div>
     </div>
-  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
         <style>
             [bg-lazy] {
                 background-image: none !important;

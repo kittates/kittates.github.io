@@ -290,12 +290,6 @@ mjx-container[display="true"] + br {
                   </a>
                 </span>
                 
-                <span class="span--category">
-                  <a href="/categories/games101/CG/" title="CG">
-                    <b>#</b> CG
-                  </a>
-                </span>
-                
               </span>
           
               <span class="post-tags">
@@ -311,7 +305,7 @@ mjx-container[display="true"] + br {
           
       </div>
       <div class="markdown-body">
-        <p>前面所有的games101的作业都是在WSL2中实现的，可以说如果出现了某个问题，只需要安装几个包就可以了。但是昨天早上当我开始做Assignment8的时候，完成了Rope构造函数，cmake .. &amp;&amp; make后运行 ./ropesim，出现了Segmentation Fault(core dumped)，起初我是认为我的代码存在问题，但是经过我反复几次修改后发现问题并不是出现在代码上，而是在项目环境中。由于项目正常来说应该是在真正的linux环境下运行的，所以我又在虚拟机中的ubuntu24.04运行，结果还是不行，仍旧Segmentation Fault(core dumped)，安装卸载了许多包，最后还导致了桌面GUI给搞没了，我又不想重装系统（不想下载镜像文件）又花了老长一段时间来修复桌面。Google问题也没有发现成功在WSL上运行的解法，在昨天晚上还导致我的WSL文件损坏了，晚上又花了老长老长时间修复提取数据。不要紧，第二天早上（也就是今天早上）继续搞。</p>
+        <p>前面所有的games101的作业都是在WSL2中实现的，可以说如果出现了某个问题，只需要安装几个包就可以了。但是昨天早上当我开始做Assignment8的时候，完成了Rope构造函数，cmake … &amp;&amp; make后运行 ./ropesim，出现了Segmentation Fault(core dumped)，起初我是认为我的代码存在问题，但是经过我反复几次修改后发现问题并不是出现在代码上，而是在项目环境中。由于项目正常来说应该是在真正的linux环境下运行的，所以我又在虚拟机中的ubuntu24.04运行，结果还是不行，仍旧Segmentation Fault(core dumped)，安装卸载了许多包，最后还导致了桌面GUI给搞没了，我又不想重装系统（不想下载镜像文件）又花了老长一段时间来修复桌面。Google问题也没有发现成功在WSL上运行的解法，在昨天晚上还导致我的WSL文件损坏了，晚上又花了老长老长时间修复提取数据。不要紧，第二天早上（也就是今天早上）继续搞。</p>
 <p>TMD，搞，搞到中午午饭都没吃，还是不行，最后无奈了，使用了games0101 p0给的VirtualBox和虚拟硬盘来做吧（没有办法的办法了），下好之后已经是下午的三点半左右了。TNND，搞完了之后进入terminal后没等输入命令操作几步就闪退到了登录界面。删了，最后还是选择搞WSL了。gdb调试发现是createKeyTables的问题，好，定位了问题的所在位置，接着看源码，问题在于glfw版本不同。</p>
 <p>前前后后花费了整整两天的时间来搞这个，明天就是周五了，BDPT和光子映射还没有实现，还要写周报，高质量实时渲染还没有进度，taichi也没有搞:weary:</p>
 
@@ -341,12 +335,6 @@ mjx-container[display="true"] + br {
                       </a>
                     </span>
                     
-                    <span class="span--category">
-                      <a href="/categories/games101/CG/" title="CG">
-                        <b>#</b> CG
-                      </a>
-                    </span>
-                    
                   </span>
               
                   <span class="post-tags">
@@ -362,6 +350,11 @@ mjx-container[display="true"] + br {
               
           </div>
           <div class="post-foot-prev">
+            
+              <a href="/2025/12/02/2025-12-2/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
             
           </div>
         </div>
@@ -705,7 +698,24 @@ mjx-container[display="true"] + br {
 
       </div>
     </div>
-  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
         <style>
             [bg-lazy] {
                 background-image: none !important;

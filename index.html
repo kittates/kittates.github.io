@@ -228,6 +228,19 @@ mjx-container[display="true"] + br {
   <div class="post-list">
     <!-- 遍历渲染文章 -->
     
+      <div class="post-item" title="gif test of mass spring system">
+        <div class="time-m-d">2025-12-02</div>
+        <div class="title">
+          <a href="/2025/12/02/2025-12-2/">
+            
+              
+                <span>gif test of mass spring system</span>
+              
+            
+          </a>
+        </div>
+      </div>
+    
       <div class="post-item" title="games101 作业8 glfw问题">
         <div class="time-m-d">2025-11-27</div>
         <div class="title">
@@ -410,24 +423,10 @@ mjx-container[display="true"] + br {
         </div>
       </div>
     
-      <div class="post-item" title="this指向">
-        <div class="time-m-d">2024-02-08</div>
-        <div class="title">
-          <a href="/2024/02/08/2024-2-8/">
-            
-              
-                <span>this指向</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
   </div>
   <nav class="post-navigation">
     
-    <span class="page-num">1 / 4</span>
-    
+    <span class="page-num">1 / 4</span>    
       <a href="/page/2/"><i class="iconfont icon-angleright"></i></a>
     
   </nav>
@@ -713,7 +712,24 @@ mjx-container[display="true"] + br {
 
       </div>
     </div>
-  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
         <style>
             [bg-lazy] {
                 background-image: none !important;
